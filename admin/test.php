@@ -1,5 +1,7 @@
 <?php 
+require 'models/db.php';
+require 'function/function.php';
 
-$N = "test.jpg";
+$Similaire = getCategorie();
 
-var_dump(explode(".",$N)[0]);
+var_dump($Similaire);

@@ -31,6 +31,21 @@ if (!function_exists('similaire')) {
 		}
 	}
 }
+if (!function_exists('ProduitSimilaireParCategorie')) {
+	function ProduitSimilaireParCategorie($items){
+		if (!empty($items)) {
+             GLOBAL $connexion;
+             $r="SELECT * FROM produit WHERE IdCategorie=$items";
+             $req=$connexion->prepare($r);
+             $req->execute();
+             $donnee=$req->fetchall(PDO::FETCH_OBJ);
+             return $donnee;
+		}
+		else{
+			die('Veuillez rentrer un paramettre valide');
+		}
+	}
+}
 
 if (!function_exists('plusVendu')) {
 	function plusVendu($items){

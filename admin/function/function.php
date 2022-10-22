@@ -24,6 +24,33 @@ if (!function_exists('checkInput')) {
     }
 }
 
+if (!function_exists('ProduitSimilaireParCategorie')) {
+   function ProduitSimilaireParCategorie($items){
+      if (!empty($items)) {
+             GLOBAL $Connexion;
+             $r="SELECT * FROM produit WHERE IdCategorie=$items";
+             $req=$Connexion->prepare($r);
+             $req->execute();
+             $donnee=$req->fetchall(PDO::FETCH_OBJ);
+             return $donnee;
+      }
+      else{
+         die('Veuillez rentrer un paramettre valide');
+      }
+   }
+}
+
+if (!function_exists('getCategorie')) {
+   function getCategorie(){
+             GLOBAL $Connexion;
+             $r="SELECT * FROM categorie";
+             $req=$Connexion->prepare($r);
+             $req->execute();
+             $donnee=$req->fetchall(PDO::FETCH_OBJ);
+             return $donnee;
+     
+   }
+}
 
 if (!function_exists('Upload')) {
    function Upload(){
