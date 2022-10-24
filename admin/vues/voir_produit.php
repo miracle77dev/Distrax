@@ -1,7 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
-
-<!-- Mirrored from htmlshopmart.justthemevalley.com/shop_grid_full_width.php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Apr 2019 18:27:43 GMT -->
+<html lang="fr">
 <head>
 <!-- Basic page needs -->
 <meta charset="utf-8">
@@ -9,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <![endif]-->
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>ShopMart premium HTML5 &amp; CSS3 template</title>
+<title>KENESHY | Voir produits</title>
 <meta name="description" content="best template, template free, responsive Template, fashion store, responsive Template, responsive html Template, Premium website templates, web templates, Multi-Purpose Responsive HTML5 Template">
 <meta name="keywords" content="bootstrap, ecommerce, fashion, layout, responsive, responsive template, responsive template download, responsive Template, retail, shop, shopping, store, Premium website templates, web templates, Multi-Purpose Responsive HTML5 Template"/>
 
@@ -17,7 +15,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Favicon  -->
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="vues/favicon.ico">
 
 <!-- CSS Style -->
 
@@ -377,11 +375,12 @@
         <div class="col-main col-sm-12 col-xs-12">
           <div class="shop-inner">
             <div class="page-title">
-              <h2>Smart phone</h2>
+              <h2>Toutes les catég</h2>
             </div>
            
             <div class="product-grid-area">
               <ul class="products-grid">
+                <?php for ($i=0; $i <count($Produit) ; $i++) :?>
                 <li class="item col-lg-3 col-md-4 col-sm-6 col-xs-6 ">
                   <div class="product-item">
                     <div class="item-inner">
@@ -397,7 +396,9 @@
                         </div>
                         <div class="pr-info-area">
                           <div class="pr-button">
+                            <div class="mt-button add_to_compare"> <a href="compare.php" title="Promouvoir le produit"> <i class="fa fa-rocket"></i> </a> </div>
                             <div class="mt-button add_to_compare"> <a href="compare.php" title="Copier le Tunnel"> <i class="fa fa-link"></i> </a> </div>
+                            <div class="mt-button add_to_compare"> <a href="compare.php" title="Retirer ce produit"> <i class="fa fa-trash"></i> </a> </div>
                           </div>
                         </div>
                         
@@ -419,6 +420,7 @@
                     </div>
                   </div>
                 </li>
+              <?php endfor; ?>
 
               </ul>
             </div>

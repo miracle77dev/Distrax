@@ -1,4 +1,3 @@
-<?php require '_config.php'; ?>
 <!-- mobile menu -->
 <div id="mobile-menu">
   <ul>

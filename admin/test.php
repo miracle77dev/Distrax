@@ -1,7 +1,12 @@
 <?php 
 require 'models/db.php';
 require 'function/function.php';
+require 'class/produit.php';
 
-$Similaire = getCategorie();
+$Taille = "S - L - M - XL - XXL";
 
-var_dump($Similaire);
+$Taille = explode("-", $Taille);
+var_dump($Taille);
+
+
+ ?>

@@ -1,6 +1,6 @@
 <?php 
-require 'function/function.php';
 require 'models/db.php';
+require 'function/function.php';
 require 'class/produit.php';
 $Produit = new Produit($Connexion);
 

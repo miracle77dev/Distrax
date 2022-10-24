@@ -13,7 +13,7 @@ if (!function_exists('checkInput')) {
           elseif ($key == 'CouleursProduit' && $value == '' || $key == 'TaillesProduit' && $value =='' || $value == "on" || $key == "ReductionValeur" && $value =='' || $key == "ReductionDelai" && $value==false || $key == "TagProduit" && $value == '' || $key == "GrandeDescription" && $value == '' || $value == "Choisir l'emplacement sur la plateforme") {
           	 continue;
           }
-         elseif (empty($value) || trim($value) == "") {
+         elseif (empty($value) || trim($value) == "" || $key == "Categorie" && $value == "0") {
             $Errors[] = "Veuillez remplir les différents champs";
           }
           else{
@@ -43,7 +43,7 @@ if (!function_exists('ProduitSimilaireParCategorie')) {
 if (!function_exists('getCategorie')) {
    function getCategorie(){
              GLOBAL $Connexion;
-             $r="SELECT * FROM categorie";
+             $r="SELECT Id,Categorie FROM categorie";
              $req=$Connexion->prepare($r);
              $req->execute();
              $donnee=$req->fetchall(PDO::FETCH_OBJ);
@@ -116,3 +116,48 @@ if (!function_exists('MultipleUpload')) {
    }
 }
 
+if (!function_exists('getProduitById')) {
+   function getProduitById($items){
+      if (!empty($items)) {
+             GLOBAL $Connexion;
+             $r='SELECT * FROM produit WHERE Id = ?';
+             $req=$Connexion->prepare($r);
+             $req->execute([$items]);
+             $donnee=$req->fetch(PDO::FETCH_OBJ);
+             return $donnee;
+      }
+      else{
+         die('Veuillez rentrer un paramettre valide le produit');
+      }
+   }
+}
+
+//Recupère le nom de la couleur à partir de la table produit en se basant sur l'Id du produit
+if (!function_exists('getCouleurName')) {
+   function getCouleurName($Id){
+      if (!empty($Id)) {
+             GLOBAL $Connexion;
+             $r="SELECT Couleur FROM produit WHERE Id = ?";
+             $req=$Connexion->prepare($r);
+             $req->execute([$Id]);
+             $donnee=$req->fetch(PDO::FETCH_OBJ);
+             return $donnee;
+      }
+      else{
+         die('Veuillez rentrer un paramettre valide pour le nom de la couleur');
+      }
+   }
+}
+
+if (!function_exists('getCouleur')) {
+   function getCouleur($items){
+      if (!empty($items)) {
+             GLOBAL $Connexion;
+             $r="SELECT CodeRgb FROM couleur WHERE CouleurArticle IN ($items)";
+             $req=$Connexion->prepare($r);
+             $req->execute();
+             $donnee=$req->fetchAll(PDO::FETCH_OBJ);
+             return $donnee;
+      }
+   }
+}

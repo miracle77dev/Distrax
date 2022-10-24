@@ -381,9 +381,13 @@
                    <div class="col-sm-6 "  style="display: flex;">
                       <select class="form-control" name="Categorie">
                         <!-- Charge les catégories dynamiquement -->
-                        <option value="3">Choisir la catégorie de votre produit</option>
+                        <option value="0">Choisir la catégorie de votre produit</option>
+                        <?php for ($i=0; $i <count($Categorie) ; $i++) : ?>
+                          <option value="<?=$Categorie[$i]->Id?>"><?=utf8_decode($Categorie[$i]->Categorie)?></option>
+                        <?php endfor; ?>
                       </select>
                     </div>
+
 
                   <div class="col-sm-6" style="display: flex;">
                     <label>Nom du produit:</label>
@@ -432,17 +436,17 @@
 
                   <div class="col-xs-12 ColorControl" style="display: none;">
                     <label>
-                      <span class="colorStyle bleu"  onclick="getColor1()"> Bleu </span>
-                        <span class="colorStyle rouge"  onclick="getColor2()"> Rouge </span>
-                        <span class="colorStyle noir"  onclick="getColor3()"> Noir </span>
-                        <span class="colorStyle blanc"  onclick="getColor4()"> Blanc </span>
-                        <span class="colorStyle vert"  onclick="getColor5()"> Vert </span>
-                        <span class="colorStyle orange"  onclick="getColor6()"> Orange </span>
-                        <span class="colorStyle jaune"  onclick="getColor7()"> Jaune </span>
-                        <span class="colorStyle rose"  onclick="getColor8()"> Rose </span>
-                        <span class="colorStyle violet"  onclick="getColor9()"> Violet </span>
-                        <span class="colorStyle gris"  onclick="getColor10()"> Gris </span>
-                        <span class="colorStyle marron"  onclick="getColor11()"> Marron </span>
+                      <span class="colorStyle bleu"  onclick="getColor1()">~Bleu~</span>
+                        <span class="colorStyle rouge"  onclick="getColor2()">~Rouge~</span>
+                        <span class="colorStyle noir"  onclick="getColor3()">~Noir~</span>
+                        <span class="colorStyle blanc"  onclick="getColor4()">~Blanc~</span>
+                        <span class="colorStyle vert"  onclick="getColor5()">~Vert~</span>
+                        <span class="colorStyle orange"  onclick="getColor6()">~Orange~</span>
+                        <span class="colorStyle jaune"  onclick="getColor7()">~Jaune~</span>
+                        <span class="colorStyle rose"  onclick="getColor8()">~Rose~</span>
+                        <span class="colorStyle violet"  onclick="getColor9()">~Violet~</span>
+                        <span class="colorStyle gris"  onclick="getColor10()">~Gris~</span>
+                        <span class="colorStyle marron"  onclick="getColor11()">~Marron~</span>
                     </label>
                     <textarea id="couleur" class="form-control" placeholder="Selectionnez les différentes couleurs disponible pour votre article" name="CouleursProduit"></textarea>
                     <span style="text-decoration: underline; cursor: pointer;" onclick="ClearC()">Vider</span>
@@ -457,11 +461,11 @@
 
                    <div class="col-xs-12 TailleControle" style="display:none;">
                     <label>
-                      <span class="colorStyle t_s"  onclick="getTaille1()"> S </span>
-                        <span class="colorStyle t_l"  onclick="getTaille2()"> L </span>
-                        <span class="colorStyle t_m"  onclick="getTaille3()"> M </span>
-                        <span class="colorStyle t_xl"  onclick="getTaille4()"> XL </span>
-                        <span class="colorStyle t_xxl"  onclick="getTaille5()"> XXL </span>
+                      <span class="colorStyle t_s"  onclick="getTaille1()">S</span>
+                        <span class="colorStyle t_l"  onclick="getTaille2()">L</span>
+                        <span class="colorStyle t_m"  onclick="getTaille3()">M</span>
+                        <span class="colorStyle t_xl"  onclick="getTaille4()">XL</span>
+                        <span class="colorStyle t_xxl"  onclick="getTaille5()">XXL</span>
                     </label>
                     <textarea id="Taille" class="form-control" placeholder="Selectionnez les différentes tailles de l'article" name="TaillesProduit"></textarea>
                     <span style="text-decoration: underline; cursor: pointer;" onclick="ClearT()">Vider</span>
@@ -503,7 +507,7 @@
                   <div class="col-xs-12">
                     <br>
                     <div class="submit-text">
-                      <button class="button" name="addBtn"><i class="fa fa-plus"></i>&nbsp; <span>Ajouter ce produit</span></button>
+                      <button class="button" name="addBtn"><i class="fa fa-plus"></i>&nbsp; <span>Ajouter le produit</span></button>
                     </div>
                   </div>
                 </div>

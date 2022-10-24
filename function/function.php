@@ -4,9 +4,9 @@ if (!function_exists('produitPanier')) {
 	function produitPanier($items){
 		if (!empty($items)) {
              GLOBAL $connexion;
-             $r='SELECT * FROM produit WHERE id IN('.$items.')';
+             $r='SELECT * FROM produit WHERE id =?';
              $req=$connexion->prepare($r);
-             $req->execute();
+             $req->execute([$items]);
              $donnee=$req->fetchAll(PDO::FETCH_OBJ);
              return $donnee;
 		}

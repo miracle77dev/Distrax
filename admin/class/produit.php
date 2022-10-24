@@ -54,4 +54,22 @@ class Produit
 		$q->closeCursor();
 		return 1;
 	}
+	public function getProduit()
+	{
+		$Req = "SELECT * FROM produit";
+		$q=$this->Connexion->prepare($Req);
+		$q->execute();
+		$Donnee=$q->fetchall(PDO::FETCH_OBJ);
+		$q->closeCursor();
+		return $Donnee;
+	}
+	public function getProduitById($Id)
+	{
+		$Req = "SELECT * FROM produit WHERE Id = ?";
+		$q=$this->Connexion->prepare($Req);
+		$q->execute([$Id]);
+		$Donnee=$q->fetch(PDO::FETCH_OBJ);
+		$q->closeCursor();
+		return $Donnee;
+	}
 }
