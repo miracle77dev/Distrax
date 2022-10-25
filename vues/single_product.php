@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <![endif]-->
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>ShopMart premium HTML5 &amp; CSS3 template</title>
+<title>KENESHY | <?=$Produit->NomProduit?></title>
 <meta name="description" content="best template, template free, responsive Template, fashion store, responsive Template, responsive html Template, Premium website templates, web templates, Multi-Purpose Responsive HTML5 Template">
 <meta name="keywords" content="bootstrap, ecommerce, fashion, layout, responsive, responsive template, responsive template download, responsive Template, retail, shop, shopping, store, Premium website templates, web templates, Multi-Purpose Responsive HTML5 Template"/>
 
@@ -100,9 +100,9 @@
                 <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> $359.99 </span> </p>
               </div>
               <div class="ratings">
-                <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
+                <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <!-- <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i>  --></div>
                 <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Your Review</a> </p>
-                <p class="availability in-stock pull-right">Availability: <span>In Stock</span></p>
+                <p class="availability in-stock pull-right">Disponibilité: <span>En Stock</span></p>
               </div>
               <div class="short-description">
                 <h2>Description rapide</h2>
@@ -115,7 +115,7 @@
                     <ul>
                       <?php if (is_array($Couleur)) {
                         for ($i=0; $i <count($Couleur) ; $i++) { 
-                          echo '<li><a href="#" style="background: <?=$Couleur[$i]->CodeRgb ?> ; width:20px; height: 19px; border:1px #d2dff4 solid;"></a></li>';
+                          echo '<li><a class="c'.trim($Couleur[$i]->CodeRgb,"#").'" style="background:'.$Couleur[$i]->CodeRgb.'; width:20px; height: 19px; border:1px #d2dff4 solid; cursor:pointer;"></a></li>';
                         }
                       } ?>
                     </ul>
@@ -128,7 +128,7 @@
                       <?php 
                         if (is_array($Taille) && count($Taille)!=0 && $Taille[0]!="") {
                             for ($i=0; $i <count($Taille) ; $i++) { 
-                              echo "<li><a href='#'>$Taille[$i]</a></li>";
+                              echo "<li><a class='$Taille[$i]' >$Taille[$i]</a></li>";
                             }
                         }
                        ?>
@@ -146,7 +146,7 @@
                       <div onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="inc qtybutton"><i class="fa fa-plus">&nbsp;</i></div>
                     </div>
                   </div>
-                  <button class="button pro-add-to-cart" title="Add to Cart" type="button"><span><i class="fa fa-shopping-basket"></i>Commandez maintenant</span></button>
+                  <button class="button pro-add-to-cart" title="Commandez maintenant" type="button" onclick="Commande(document.getElementById('qty').value)"><span><i class="fa fa-shopping-basket"></i>Commandez maintenant</span></button>
                 </form>
               </div>
               <div class="product-cart-option">
@@ -158,7 +158,14 @@
               </div>
               <div class="pro-tags">
                 <div class="pro-tags-title">Tags:</div>
-                <a href="#">ecommerce</a>, <a href="#">bootstrap</a>, <a href="#">shopping</a>, <a href="#">fashion</a>, <a href="#">responsive</a> </div>
+                <?php if (!is_null($Produit->Tag)) {
+                  $Tags = explode("-", $Produit->Tag);
+                  for ($i=0; $i <count($Tags) ; $i++) { 
+                    echo '<a href="#">'.$Tags[$i].'</a> ';
+                    }
+                  } 
+                ?>
+                </div>
               <div class="share-box">
                 <div class="title">Share in social media</div>
                 <div class="socials-box"> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-google-plus"></i></a> <a href="#"><i class="fa fa-youtube"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a> <a href="#"><i class="fa fa-instagram"></i></a> </div>
@@ -1022,5 +1029,322 @@
 <script type="text/javascript" src="vues/js/jquery-ui.js"></script> 
 <script type="text/javascript" src="vues/js/main.js"></script> 
 <script type="text/javascript" src="vues/js/countdown.js"></script>
+<script type="text/javascript">
+    var ColorTable = [];
+    var TailleTable = [];
+    
+    try{
+      let Bleu = document.querySelector(".c0000ff");
+      Bleu.onclick = function(){
+        if (Bleu.style.width == '24px') {
+            ColorTable['Bleu'] = 0;
+            Bleu.style.width = '20px';
+            Bleu.style.height = '19px';
+            Bleu.style.boxShadow = '0px 0px 0px 0px rgba(0,0,0,0.6)';
+        } else {
+            ColorTable['Bleu'] = 1;
+            Bleu.style.width = '24px';
+            Bleu.style.height = '24px';
+            Bleu.style.boxShadow = '0px 0px 3px 0px rgba(0,0,0,0.6)';
+        }
+      }
+    }
+    catch(err){
+      console.log(err)
+    }
+
+    try{
+      let Vert = document.querySelector(".c00ff00");
+      Vert.onclick = function(){
+        if (Vert.style.width == '24px') {
+            ColorTable['Vert'] = 0;
+            Vert.style.width = '20px';
+            Vert.style.height = '19px';
+            Vert.style.boxShadow = '0px 0px 0px 0px rgba(0,0,0,0.6)';
+        } else {
+            ColorTable['Vert'] = 1;
+            Vert.style.width = '24px';
+            Vert.style.height = '24px';
+            Vert.style.boxShadow = '0px 0px 3px 0px rgba(0,0,0,0.6)';
+        }
+      }
+    }
+    catch(err){
+      console.log(err)
+    }
+
+    try{
+      let Noir = document.querySelector(".c000000");
+      Noir.onclick = function(){
+        if (Noir.style.width == '24px') {
+            ColorTable['Noir'] = 0;
+            Noir.style.width = '20px';
+            Noir.style.height = '19px';
+            Noir.style.boxShadow = '0px 0px 0px 0px rgba(0,0,0,0.6)';
+        } else {
+            ColorTable['Noir'] = 1;
+            Noir.style.width = '24px';
+            Noir.style.height = '24px';
+            Noir.style.boxShadow = '0px 0px 3px 0px rgba(0,0,0,0.6)';
+        }
+      } 
+    }
+    catch(err){
+      console.log(err)
+    }
+
+    try{
+      let Rouge = document.querySelector(".cff0000");
+      Rouge.onclick = function(){
+        if (Rouge.style.width == '24px') {
+            ColorTable['Rouge'] = 0;
+            Rouge.style.width = '20px';
+            Rouge.style.height = '19px';
+            Rouge.style.boxShadow = '0px 0px 0px 0px rgba(0,0,0,0.6)';
+        } else {
+            ColorTable['Rouge'] = 1;
+            Rouge.style.width = '24px';
+            Rouge.style.height = '24px';
+            Rouge.style.boxShadow = '0px 0px 3px 0px rgba(0,0,0,0.6)';
+        }
+      }
+    }
+    catch(err){
+      console.log(err)
+    }
+
+    try{
+      let Blanc = document.querySelector(".cffffff");
+      Blanc.onclick = function(){
+        if (Blanc.style.width == '24px') {
+            ColorTable['Blanc'] = 0;
+            Blanc.style.width = '20px';
+            Blanc.style.height = '19px';
+            Blanc.style.boxShadow = '0px 0px 0px 0px rgba(0,0,0,0.6)';
+        } else {
+            ColorTable['Blanc'] = 1;
+            Blanc.style.width = '24px';
+            Blanc.style.height = '24px';
+            Blanc.style.boxShadow = '0px 0px 3px 0px rgba(0,0,0,0.6)';
+        }
+      }
+    }
+    catch(err){
+      console.log(err)
+    }
+
+    try{
+        let Orange = document.querySelector(".cff8000");
+        Orange.onclick = function(){
+        if (Orange.style.width == '24px') {
+            ColorTable['Orange'] = 0;
+            Orange.style.width = '20px';
+            Orange.style.height = '19px';
+            Orange.style.boxShadow = '0px 0px 0px 0px rgba(0,0,0,0.6)';
+        } else {
+            ColorTable['Orange'] = 1;
+            Orange.style.width = '24px';
+            Orange.style.height = '24px';
+            Orange.style.boxShadow = '0px 0px 3px 0px rgba(0,0,0,0.6)';
+        }
+      }
+    }
+    catch(err){
+      console.log(err)
+    }
+    
+    try{
+      let Jaune = document.querySelector(".cffff00");
+      Jaune.onclick = function(){
+        if (Jaune.style.width == '24px') {
+            ColorTable['Jaune'] = 0;
+            Jaune.style.width = '20px';
+            Jaune.style.height = '19px';
+            Jaune.style.boxShadow = '0px 0px 0px 0px rgba(0,0,0,0.6)';
+        } else {
+            ColorTable['Jaune'] = 1;
+            Jaune.style.width = '24px';
+            Jaune.style.height = '24px';
+            Jaune.style.boxShadow = '0px 0px 3px 0px rgba(0,0,0,0.6)';
+        }
+      }
+    }
+    catch(err){
+      console.log(err)
+    }
+    try{
+      let Rose = document.querySelector(".cff007f");
+      Rose.onclick = function(){
+        if (Rose.style.width == '24px') {
+            ColorTable['Rose'] = 0;
+            Rose.style.width = '20px';
+            Rose.style.height = '19px';
+            Rose.style.boxShadow = '0px 0px 0px 0px rgba(0,0,0,0.6)';
+        } else {
+            ColorTable['Rose'] = 1;
+            Rose.style.width = '24px';
+            Rose.style.height = '24px';
+            Rose.style.boxShadow = '0px 0px 3px 0px rgba(0,0,0,0.6)';
+        }
+      }
+    }
+    catch(err){
+      console.log(err)
+    }
+    try{
+      let Violet = document.querySelector(".ca020f0");
+      Violet.onclick = function(){
+        if (Violet.style.width == '24px') {
+            ColorTable['Violet'] = 0;
+            Violet.style.width = '20px';
+            Violet.style.height = '19px';
+            Violet.style.boxShadow = '0px 0px 0px 0px rgba(0,0,0,0.6)';
+        } else {
+            ColorTable['Violet'] = 1;
+            Violet.style.width = '24px';
+            Violet.style.height = '24px';
+            Violet.style.boxShadow = '0px 0px 3px 0px rgba(0,0,0,0.6)';
+        }
+      }
+    }
+    catch(err){
+      console.log(err)
+    }
+    try{
+      let Marron = document.querySelector(".c70150d");
+      Marron.onclick = function(){
+        if (Marron.style.width == '24px') {
+            ColorTable['Marron'] = 0;
+            Marron.style.width = '20px';
+            Marron.style.height = '19px';
+            Marron.style.boxShadow = '0px 0px 0px 0px rgba(0,0,0,0.6)';
+        } else {
+            ColorTable['Marron'] = 1;
+            Marron.style.width = '24px';
+            Marron.style.height = '24px';
+            Marron.style.boxShadow = '0px 0px 3px 0px rgba(0,0,0,0.6)';
+        }
+      }
+    }
+    catch(err){
+      console.log(err)
+    }
+
+    try{
+      let gris = document.querySelector(".cb3b3b3");
+      gris.onclick = function(){
+        if (gris.style.width == '24px') {
+            ColorTable['gris'] = 0;
+            gris.style.width = '20px';
+            gris.style.height = '19px';
+            gris.style.boxShadow = '0px 0px 0px 0px rgba(0,0,0,0.6)';
+        } else {
+            ColorTable['gris'] = 1;
+            gris.style.width = '24px';
+            gris.style.height = '24px';
+            gris.style.boxShadow = '0px 0px 3px 0px rgba(0,0,0,0.6)';
+        }
+      }
+    }
+    catch(err){
+      console.log(err)
+    }
+/*get tall*/
+  try{
+      let S = document.querySelector(".S");
+      S.onclick = function(){
+        if (S.style.backgroundColor == "") {
+            TailleTable['S'] = "S"
+            S.style.backgroundColor = "rgba(232,63,51,1)";
+            S.style.color = "#ffffff"
+        }
+        else{
+            TailleTable['S'] = ""
+            S.style.backgroundColor = "";
+            S.style.color = "#666"
+        }
+      }
+    }
+    catch(err){
+      console.log(err)
+    }
+  try{
+      let L = document.querySelector(".L");
+      L.onclick = function(){
+        if (L.style.backgroundColor == "") {
+            TailleTable['L'] = "L"
+            L.style.backgroundColor = "rgba(232,63,51,1)";
+            L.style.color = "#ffffff"
+        }
+        else{
+            TailleTable['L'] = ""
+            L.style.backgroundColor = "";
+            L.style.color = "#666"
+        }
+      }
+    }
+    catch(err){
+      console.log(err)
+    }
+  try{
+      let M = document.querySelector(".M");
+      M.onclick = function(){
+        if (M.style.backgroundColor == "") {
+            TailleTable['M'] = "M"
+            M.style.backgroundColor = "rgba(232,63,51,1)";
+            M.style.color = "#ffffff"
+        }
+        else{
+            TailleTable['M'] = ""
+            M.style.backgroundColor = "";
+            M.style.color = "#666"
+        }
+      }
+    }
+    catch(err){
+      console.log(err)
+    }
+  try{
+      let XL = document.querySelector(".XL");
+      XL.onclick = function(){
+        if (XL.style.backgroundColor == "") {
+            TailleTable['XL'] = "XL"
+            XL.style.backgroundColor = "rgba(232,63,51,1)";
+            XL.style.color = "#ffffff"
+        }
+        else{
+            TailleTable['XL'] = ""
+            XL.style.backgroundColor = "";
+            XL.style.color = "#666"
+        }
+      }
+    }
+    catch(err){
+      console.log(err)
+    }
+  try{
+      let XXL = document.querySelector(".XXL");
+      XXL.onclick = function(){
+        if (XXL.style.backgroundColor == "") {
+            TailleTable['XXL'] = "XXL"
+            XXL.style.backgroundColor = "rgba(232,63,51,1)";
+            XXL.style.color = "#ffffff"
+        }
+        else{
+            TailleTable['XXL'] = ""
+            XXL.style.backgroundColor = "";
+            XXL.style.color = "#666"
+        }
+      }
+    }
+    catch(err){
+      console.log(err)
+    }
+
+  function Commande(Qte){
+    console.log(Qte)
+  }
+
+</script>
 </body>
 </html>

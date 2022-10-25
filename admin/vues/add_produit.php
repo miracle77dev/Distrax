@@ -486,7 +486,7 @@
                   </div>
 
                   <div class="col-xs-12">
-                    <label>Ajouter des Tags (Optionnels):</label>
+                    <label>Ajouter des Tags (Optionnel) Separer chaque mot par un tiret (<span style="color:red;">-</span>) :</label>
                     <div class="input-text">
                       <input type="text" name="TagProduit" class="form-control" placeholder="Champs lexical de l'article: Tunique,Tenue homme, vêtements hommes...">
                     </div>

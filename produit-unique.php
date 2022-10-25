@@ -3,9 +3,9 @@
 //require 'class/viewproduit.php';
 require 'admin/models/db.php';
 require 'admin/function/function.php';
-$Produit=getProduitById(7);
+$Produit=getProduitById(6);
 try {
-	$Couleur = str_replace(['~', '-'],['"', ','],strtolower(getCouleurName(7)->Couleur)); //Prend en parametre l'Id du produit
+	$Couleur = str_replace(['~', '-'],['"', ','],strtolower(getCouleurName(6)->Couleur)); //Prend en parametre l'Id du produit
 	$Couleur=getCouleur($Couleur);
 } catch (Exception $e) {
 	
