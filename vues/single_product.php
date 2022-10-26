@@ -128,7 +128,7 @@
                       <?php 
                         if (is_array($Taille) && count($Taille)!=0 && $Taille[0]!="") {
                             for ($i=0; $i <count($Taille) ; $i++) { 
-                              echo "<li><a class='$Taille[$i]' >$Taille[$i]</a></li>";
+                              echo "<li><a class='$Taille[$i]' style='cursor:pointer;'>$Taille[$i]</a></li>";
                             }
                         }
                        ?>
@@ -143,10 +143,11 @@
                     <div class="numbers-row">
                       <div onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0 ) result.value--;return false;" class="dec qtybutton"><i class="fa fa-minus">&nbsp;</i></div>
                       <input type="text" class="qty" title="Qty" value="1" maxlength="12" id="qty" name="qty">
+                      <input type="hidden" name="Produit_Id" id="Produit_Id" value="<?=$Produit->Id?>">
                       <div onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="inc qtybutton"><i class="fa fa-plus">&nbsp;</i></div>
                     </div>
                   </div>
-                  <button class="button pro-add-to-cart" title="Commandez maintenant" type="button" onclick="Commande(document.getElementById('qty').value)"><span><i class="fa fa-shopping-basket"></i>Commandez maintenant</span></button>
+                  <button class="button pro-add-to-cart" title="Commandez maintenant" type="button" onclick="Commande(document.getElementById('Produit_Id').value,document.getElementById('qty').value)"><span><i class="fa fa-shopping-basket"></i>Commandez maintenant</span></button>
                 </form>
               </div>
               <div class="product-cart-option">
@@ -1040,12 +1041,12 @@
             ColorTable['Bleu'] = 0;
             Bleu.style.width = '20px';
             Bleu.style.height = '19px';
-            Bleu.style.boxShadow = '0px 0px 0px 0px rgba(0,0,0,0.6)';
+            Bleu.style.border = '1px rgba(206,214,227,0.7) solid'
         } else {
             ColorTable['Bleu'] = 1;
             Bleu.style.width = '24px';
             Bleu.style.height = '24px';
-            Bleu.style.boxShadow = '0px 0px 3px 0px rgba(0,0,0,0.6)';
+            Bleu.style.border = '1px rgb(231,76,60) solid';
         }
       }
     }
@@ -1060,12 +1061,12 @@
             ColorTable['Vert'] = 0;
             Vert.style.width = '20px';
             Vert.style.height = '19px';
-            Vert.style.boxShadow = '0px 0px 0px 0px rgba(0,0,0,0.6)';
+            Vert.style.border = '1px rgba(206,214,227,0.7) solid'
         } else {
             ColorTable['Vert'] = 1;
             Vert.style.width = '24px';
             Vert.style.height = '24px';
-            Vert.style.boxShadow = '0px 0px 3px 0px rgba(0,0,0,0.6)';
+            Vert.style.border = '1px rgb(231,76,60) solid';
         }
       }
     }
@@ -1080,12 +1081,12 @@
             ColorTable['Noir'] = 0;
             Noir.style.width = '20px';
             Noir.style.height = '19px';
-            Noir.style.boxShadow = '0px 0px 0px 0px rgba(0,0,0,0.6)';
+            Noir.style.border = '1px rgba(206,214,227,0.7) solid'
         } else {
             ColorTable['Noir'] = 1;
             Noir.style.width = '24px';
             Noir.style.height = '24px';
-            Noir.style.boxShadow = '0px 0px 3px 0px rgba(0,0,0,0.6)';
+            Noir.style.border = '1px rgb(231,76,60) solid';
         }
       } 
     }
@@ -1100,12 +1101,12 @@
             ColorTable['Rouge'] = 0;
             Rouge.style.width = '20px';
             Rouge.style.height = '19px';
-            Rouge.style.boxShadow = '0px 0px 0px 0px rgba(0,0,0,0.6)';
+            Rouge.style.border = '1px rgba(206,214,227,0.7) solid'
         } else {
             ColorTable['Rouge'] = 1;
             Rouge.style.width = '24px';
             Rouge.style.height = '24px';
-            Rouge.style.boxShadow = '0px 0px 3px 0px rgba(0,0,0,0.6)';
+            Rouge.style.border = '1px rgb(231,76,60) solid';
         }
       }
     }
@@ -1120,12 +1121,12 @@
             ColorTable['Blanc'] = 0;
             Blanc.style.width = '20px';
             Blanc.style.height = '19px';
-            Blanc.style.boxShadow = '0px 0px 0px 0px rgba(0,0,0,0.6)';
+            Blanc.style.border = '1px rgba(206,214,227,0.7) solid'
         } else {
             ColorTable['Blanc'] = 1;
             Blanc.style.width = '24px';
             Blanc.style.height = '24px';
-            Blanc.style.boxShadow = '0px 0px 3px 0px rgba(0,0,0,0.6)';
+            Blanc.style.border = '1px rgb(231,76,60) solid';
         }
       }
     }
@@ -1140,12 +1141,12 @@
             ColorTable['Orange'] = 0;
             Orange.style.width = '20px';
             Orange.style.height = '19px';
-            Orange.style.boxShadow = '0px 0px 0px 0px rgba(0,0,0,0.6)';
+            Orange.style.border = '1px rgba(206,214,227,0.7) solid'
         } else {
             ColorTable['Orange'] = 1;
             Orange.style.width = '24px';
             Orange.style.height = '24px';
-            Orange.style.boxShadow = '0px 0px 3px 0px rgba(0,0,0,0.6)';
+            Orange.style.border = '1px rgb(231,76,60) solid';
         }
       }
     }
@@ -1160,12 +1161,12 @@
             ColorTable['Jaune'] = 0;
             Jaune.style.width = '20px';
             Jaune.style.height = '19px';
-            Jaune.style.boxShadow = '0px 0px 0px 0px rgba(0,0,0,0.6)';
+            Jaune.style.border = '1px rgba(206,214,227,0.7) solid'
         } else {
             ColorTable['Jaune'] = 1;
             Jaune.style.width = '24px';
             Jaune.style.height = '24px';
-            Jaune.style.boxShadow = '0px 0px 3px 0px rgba(0,0,0,0.6)';
+            Jaune.style.border = '1px rgb(231,76,60) solid';
         }
       }
     }
@@ -1179,12 +1180,12 @@
             ColorTable['Rose'] = 0;
             Rose.style.width = '20px';
             Rose.style.height = '19px';
-            Rose.style.boxShadow = '0px 0px 0px 0px rgba(0,0,0,0.6)';
+            Rose.style.border = '1px rgba(206,214,227,0.7) solid'
         } else {
             ColorTable['Rose'] = 1;
             Rose.style.width = '24px';
             Rose.style.height = '24px';
-            Rose.style.boxShadow = '0px 0px 3px 0px rgba(0,0,0,0.6)';
+            Rose.style.border = '1px rgb(231,76,60) solid';
         }
       }
     }
@@ -1198,12 +1199,12 @@
             ColorTable['Violet'] = 0;
             Violet.style.width = '20px';
             Violet.style.height = '19px';
-            Violet.style.boxShadow = '0px 0px 0px 0px rgba(0,0,0,0.6)';
+            Violet.style.border = '1px rgba(206,214,227,0.7) solid'
         } else {
             ColorTable['Violet'] = 1;
             Violet.style.width = '24px';
             Violet.style.height = '24px';
-            Violet.style.boxShadow = '0px 0px 3px 0px rgba(0,0,0,0.6)';
+            Violet.style.border = '1px rgb(231,76,60) solid';
         }
       }
     }
@@ -1217,12 +1218,12 @@
             ColorTable['Marron'] = 0;
             Marron.style.width = '20px';
             Marron.style.height = '19px';
-            Marron.style.boxShadow = '0px 0px 0px 0px rgba(0,0,0,0.6)';
+            Marron.style.border = '1px rgba(206,214,227,0.7) solid'
         } else {
             ColorTable['Marron'] = 1;
             Marron.style.width = '24px';
             Marron.style.height = '24px';
-            Marron.style.boxShadow = '0px 0px 3px 0px rgba(0,0,0,0.6)';
+            Marron.style.border = '1px rgb(231,76,60) solid';
         }
       }
     }
@@ -1237,12 +1238,12 @@
             ColorTable['gris'] = 0;
             gris.style.width = '20px';
             gris.style.height = '19px';
-            gris.style.boxShadow = '0px 0px 0px 0px rgba(0,0,0,0.6)';
+            gris.style.border = '1px rgba(206,214,227,0.7) solid'
         } else {
             ColorTable['gris'] = 1;
             gris.style.width = '24px';
             gris.style.height = '24px';
-            gris.style.boxShadow = '0px 0px 3px 0px rgba(0,0,0,0.6)';
+            gris.style.border = '1px rgb(231,76,60) solid';
         }
       }
     }
@@ -1341,8 +1342,20 @@
       console.log(err)
     }
 
-  function Commande(Qte){
+  function Commande(Id,Qte){
+    console.log(Id)
     console.log(Qte)
+    console.log(ColorTable)
+    console.log(TailleTable)
+
+    let Data = {
+      "Id":Id,
+      "Qte":Qte,
+      "Couleur":ColorTable,
+      "Taille":TailleTable
+    }
+
+    console.log(Data)
   }
 
 </script>

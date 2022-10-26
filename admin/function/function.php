@@ -116,11 +116,11 @@ if (!function_exists('MultipleUpload')) {
    }
 }
 
-if (!function_exists('getProduitById')) {
-   function getProduitById($items){
+if (!function_exists('getProduitByUniqueId')) {
+   function getProduitByUniqueId($items){
       if (!empty($items)) {
              GLOBAL $Connexion;
-             $r='SELECT * FROM produit WHERE Id = ?';
+             $r='SELECT * FROM produit WHERE UniqueId = ?';
              $req=$Connexion->prepare($r);
              $req->execute([$items]);
              $donnee=$req->fetch(PDO::FETCH_OBJ);
