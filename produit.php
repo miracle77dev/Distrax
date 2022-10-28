@@ -1,7 +1,9 @@
 <?php
+session_start();
 require 'admin/models/db.php';
 require 'admin/function/function.php';
 if (isset($_GET['p']) && !empty($_GET['p'])) {
+	$_SESSION['page'] = htmlspecialchars($_GET['p']);
 	$UniqueId = htmlspecialchars($_GET['p']); 
 	$Produit=getProduitByUniqueId($UniqueId);
 	if ($Produit==false) {

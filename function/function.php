@@ -47,18 +47,18 @@ if (!function_exists('ProduitSimilaireParCategorie')) {
 	}
 }
 
-if (!function_exists('plusVendu')) {
-	function plusVendu($items){
-		if (!empty($items)) {
+if (!function_exists('InfoProduit')) {
+	function InfoProduit($Id){
+		if (!empty($Id)) {
              GLOBAL $connexion;
-             $r="SELECT * FROM produit WHERE categorie='$items'";
+             $r="SELECT NomProduit,PrixProduit,ImagePrincipale FROM produit WHERE Id=?";
              $req=$connexion->prepare($r);
-             $req->execute();
-             $donnee=$req->fetchall(PDO::FETCH_OBJ);
+             $req->execute([$Id]);
+             $donnee=$req->fetch(PDO::FETCH_OBJ);
              return $donnee;
 		}
 		else{
-			die('Veuillez rentrer un paramettre valide');
+			die('Le produit recherché est introuvable: Vérifiez l\'identifiant du produit');
 		}
 	}
 }

@@ -21,7 +21,7 @@ if (!isset($_SESSION['panier'])) {
 <!--[if lt IE 8]>
 <p class="browserupgrade">Veuillez mettre à jour votre navigateur svp<a href="http://browsehappy.com/">upgrade your browser</a> pour ameliorer votre espériance sur notre site.</p>
 <![endif]--> 
-<?php require 'include/head.php'; ?>
+
 
   <!-- Main Container -->
   <section class="main-container col1-layout">
@@ -38,57 +38,63 @@ if (!isset($_SESSION['panier'])) {
                   <thead>
                     <tr>
                       <th class="cart_product">Product</th>
-                      <th>Description</th>
-                      <th>disp.</th>
-                      <th>prix unitaire</th>
+                      <th>Qte</th>
+                      <th>PU</th>
                       <th>Qte</th>
                       <th>Total</th>
-                      <th  class="action"><i class="fa fa-trash-o"></i></th>
+                      <th  class="action"><i class="fa fa-truck"></i> Livraison</th>
                     </tr>
                   </thead>
                   <tbody>
-         
-          <?php if (!empty($_SESSION['panier'])):?>
-          <?php $cle=array_keys($_SESSION['panier']);
-                $s=implode(',', $cle);
-                $pr=produitPanier($s);?>
-                <?php $_SESSION['prix_totale_panier']=0;?>
-
-               <?php for ($i=0; $i <count($pr) ; $i++):?>
-                <?php $prix_total_produit=$pr[$i]->prix_promo*$_SESSION['panier'][$pr[$i]->id]?>
-                <?php $_SESSION['prix_totale_panier']+=$prix_total_produit?>
-                    <tr>
-                      <td class="cart_product"><a href="#"><img src="admin/upload/<?=$pr[$i]->img?> " alt="<?=$pr[$i]->titre?>"></a></td>
-                      <td class="cart_description"><p class="product-name"><a href="#"><?=$pr[$i]->titre?></a></p>
-                        <small><a href="#">Color : Red</a></small>
-                        <small><a href="#">Size : M</a></small></td>
-                      <td class="availability in-stock"><span class="label">en stock</span></td>
-                      <td class="price"><span><?=$pr[$i]->prix_promo?></span></td>
-                      <td class="qty"><input class="form-control input-sm" type="text" value="<?=$_SESSION['panier'][$pr[$i]->id]?>"></td>
-                      <td class="price"><span><?=$prix_total_produit?></span></td>
-                      <td class="action"><a href="retirer.php?id=<?=$pr[$i]->id?>"><i class="icon-close"></i></a></td>
+                  <tr> 
+                      <td class="cart_product"><a href="#"><img src="admin/upload/<?=$Produit->ImagePrincipale?>" alt=""></a></td>
+                      <td class="cart_description"><p class="product-name"><a href="#"><?=$Produit->NomProduit?></a></p>
+                        <small><a href="#"><?= $c = (!empty($c)) ? "Coleur : $c": "" ; ?></a></small>
+                        <small><a href="#"><?= $t = (!empty($t)) ? "Taille : $t": "" ; ?></a></small>
+                      </td>
+                      <td class="price"><span><?=$Produit->PrixProduit?></span></td>
+                      <td class="qty"><?=$q?></td>
+                      <td class="price"><span><?=intval($Produit->PrixProduit)*intval($q)?></span></td>
+                      <td class="availability in-stock"><span class="label">Gratuit Abidjan</span></td>
                     </tr>
-                   <?php endfor;?>
-
-                    <?php elseif ($_SESSION['panier']==false OR $_SESSION['panier']==''):?>
-                    <?php $_SESSION['prix_totale_panier']=0;?>
-                      <p>Votre panier est vide pour le moment</p>
-                    <?php endif;?>
+         
                   </tbody>
                   <tfoot>
                     <tr>
                       <td colspan="2" rowspan="2"></td>
-                      <td colspan="3"><?=$_SESSION['prix_totale_panier']?> Fcfa (tax exclu.)</td>
-                      <td colspan="2"><?=$_SESSION['prix_totale_panier']?> Fcfa</td>
                     </tr>
                     <tr>
                       <td colspan="3"><strong>NET A PAYER</strong></td>
-                      <td colspan="2"><strong><?=$_SESSION['prix_totale_panier']?> FCFA</strong></td>
+                      <td colspan="2"><strong><?=intval($Produit->PrixProduit)*intval($q)?> FCFA</strong></td>
                     </tr>
                   </tfoot>
                 </table>
               </div>
-              <div class="cart_navigation"> <a class="continue-btn" href="index.php"><i class="fa fa-arrow-left"> </i>&nbsp; Continuer mes achats</a> <a class="checkout-btn" href="#"><i class="fa fa-check"></i> Proceder au paiement</a> </div>
+              <section class="main-container col1-layout">
+                <div class="main container">
+                  <div class="page-content">
+                    <div class="account-login">
+                      <div class="box-authentication">
+                        <h4>Vos informations</h4>
+                        <p class="before-login-text">Remplissez le formulaire pour la livraison</p>
+                        <label for="emmail_login">Nom complet<span class="required">*</span></label>
+                        <input id="emmail_login" type="text" class="form-control">
+                        <label for="password_login">Numéro<span class="required">*</span></label>
+                        <input id="password_login" type="password" class="form-control">
+                      </div>
+                      <div class="box-authentication">
+                        <h4>Adresse ou lieu de livraison</h4>
+                        <p>Veuillez renseigner le lieu de livraison</p>
+                        <label for="emmail_register">Commune<span class="required">*</span></label>
+                        <input id="emmail_register" type="text" class="form-control">
+                        <label for="emmail_register">Lieu de livraison<span class="required">*</span></label>
+                        <input id="emmail_register" type="text" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <div class="cart_navigation"> <a class="checkout-btn" href="#"><i class="fa fa-check"></i>Valider ma commande</a> </div>
             </div>
           </div>
         </div>
@@ -104,8 +110,8 @@ if (!isset($_SESSION['panier'])) {
             <div class="text-des">
               <div class="icon-wrapper"><i class="fa fa-paper-plane"></i></div>
               <div class="service-wrapper">
-                <h3>World-Wide Shipping</h3>
-                <p>On order over 99</p>
+                <h3>Livraison partout en Afrique</h3>
+                <p>Nous livrons dans plus de 16 pays</p>
               </div>
             </div>
           </div>
@@ -115,8 +121,8 @@ if (!isset($_SESSION['panier'])) {
             <div class="text-des">
               <div class="icon-wrapper"><i class="fa fa-rotate-right"></i></div>
               <div class="service-wrapper">
-                <h3>30 Days Return</h3>
-                <p>Moneyback guarantee </p>
+                <h3>Retour sur 30 jours</h3>
+                <p>Garantie de remboursement si le produit ne repond pas à vos attente</p>
               </div>
             </div>
           </div>
@@ -126,8 +132,8 @@ if (!isset($_SESSION['panier'])) {
             <div class="text-des">
               <div class="icon-wrapper"><i class="fa fa-umbrella"></i></div>
               <div class="service-wrapper">
-                <h3>Support 24/7</h3>
-                <p>Call us: ( +123 ) 456 789</p>
+                <h3>Service client 24/7</h3>
+                <p>Service client haute qualité disponible chaque jour même les jours fériés et les dimanches</p>
               </div>
             </div>
           </div>
@@ -137,8 +143,8 @@ if (!isset($_SESSION['panier'])) {
             <div class="text-des">
               <div class="icon-wrapper"><i class="fa fa-tags"></i></div>
               <div class="service-wrapper">
-                <h3>Member Discount</h3>
-                <p>25% on order over 199</p>
+                <h3>Des réductions chaque jour</h3>
+                <p>Des reductions allant jusqu'à 45% sur nos différents produits</p>
               </div>
             </div>
           </div>

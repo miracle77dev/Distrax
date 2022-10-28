@@ -1031,19 +1031,19 @@
 <script type="text/javascript" src="vues/js/main.js"></script> 
 <script type="text/javascript" src="vues/js/countdown.js"></script>
 <script type="text/javascript">
-    var ColorTable = [];
-    var TailleTable = [];
+    var ColorTable = "";
+    var TailleTable = "";
     
     try{
       let Bleu = document.querySelector(".c0000ff");
       Bleu.onclick = function(){
         if (Bleu.style.width == '24px') {
-            ColorTable['Bleu'] = 0;
+            ColorTable = "";
             Bleu.style.width = '20px';
             Bleu.style.height = '19px';
             Bleu.style.border = '1px rgba(206,214,227,0.7) solid'
         } else {
-            ColorTable['Bleu'] = 1;
+            ColorTable = "bleu";
             Bleu.style.width = '24px';
             Bleu.style.height = '24px';
             Bleu.style.border = '1px rgb(231,76,60) solid';
@@ -1058,12 +1058,12 @@
       let Vert = document.querySelector(".c00ff00");
       Vert.onclick = function(){
         if (Vert.style.width == '24px') {
-            ColorTable['Vert'] = 0;
+            ColorTable = "";
             Vert.style.width = '20px';
             Vert.style.height = '19px';
             Vert.style.border = '1px rgba(206,214,227,0.7) solid'
         } else {
-            ColorTable['Vert'] = 1;
+            ColorTable = "Vert";
             Vert.style.width = '24px';
             Vert.style.height = '24px';
             Vert.style.border = '1px rgb(231,76,60) solid';
@@ -1078,12 +1078,12 @@
       let Noir = document.querySelector(".c000000");
       Noir.onclick = function(){
         if (Noir.style.width == '24px') {
-            ColorTable['Noir'] = 0;
+            ColorTable = "";
             Noir.style.width = '20px';
             Noir.style.height = '19px';
             Noir.style.border = '1px rgba(206,214,227,0.7) solid'
         } else {
-            ColorTable['Noir'] = 1;
+            ColorTable = "Noir";
             Noir.style.width = '24px';
             Noir.style.height = '24px';
             Noir.style.border = '1px rgb(231,76,60) solid';
@@ -1098,12 +1098,12 @@
       let Rouge = document.querySelector(".cff0000");
       Rouge.onclick = function(){
         if (Rouge.style.width == '24px') {
-            ColorTable['Rouge'] = 0;
+            ColorTable = "";
             Rouge.style.width = '20px';
             Rouge.style.height = '19px';
             Rouge.style.border = '1px rgba(206,214,227,0.7) solid'
         } else {
-            ColorTable['Rouge'] = 1;
+            ColorTable= 'Rouge';
             Rouge.style.width = '24px';
             Rouge.style.height = '24px';
             Rouge.style.border = '1px rgb(231,76,60) solid';
@@ -1118,12 +1118,12 @@
       let Blanc = document.querySelector(".cffffff");
       Blanc.onclick = function(){
         if (Blanc.style.width == '24px') {
-            ColorTable['Blanc'] = 0;
+            ColorTable = "";
             Blanc.style.width = '20px';
             Blanc.style.height = '19px';
             Blanc.style.border = '1px rgba(206,214,227,0.7) solid'
         } else {
-            ColorTable['Blanc'] = 1;
+            ColorTable = 'Blanc';
             Blanc.style.width = '24px';
             Blanc.style.height = '24px';
             Blanc.style.border = '1px rgb(231,76,60) solid';
@@ -1138,12 +1138,12 @@
         let Orange = document.querySelector(".cff8000");
         Orange.onclick = function(){
         if (Orange.style.width == '24px') {
-            ColorTable['Orange'] = 0;
+            ColorTable = "";
             Orange.style.width = '20px';
             Orange.style.height = '19px';
             Orange.style.border = '1px rgba(206,214,227,0.7) solid'
         } else {
-            ColorTable['Orange'] = 1;
+            ColorTable= 'Orange';
             Orange.style.width = '24px';
             Orange.style.height = '24px';
             Orange.style.border = '1px rgb(231,76,60) solid';
@@ -1158,12 +1158,12 @@
       let Jaune = document.querySelector(".cffff00");
       Jaune.onclick = function(){
         if (Jaune.style.width == '24px') {
-            ColorTable['Jaune'] = 0;
+            ColorTable = "";
             Jaune.style.width = '20px';
             Jaune.style.height = '19px';
             Jaune.style.border = '1px rgba(206,214,227,0.7) solid'
         } else {
-            ColorTable['Jaune'] = 1;
+            ColorTable = 'Jaune';
             Jaune.style.width = '24px';
             Jaune.style.height = '24px';
             Jaune.style.border = '1px rgb(231,76,60) solid';
@@ -1177,12 +1177,12 @@
       let Rose = document.querySelector(".cff007f");
       Rose.onclick = function(){
         if (Rose.style.width == '24px') {
-            ColorTable['Rose'] = 0;
+            ColorTable = "";
             Rose.style.width = '20px';
             Rose.style.height = '19px';
             Rose.style.border = '1px rgba(206,214,227,0.7) solid'
         } else {
-            ColorTable['Rose'] = 1;
+            ColorTable = 'Rose';
             Rose.style.width = '24px';
             Rose.style.height = '24px';
             Rose.style.border = '1px rgb(231,76,60) solid';
@@ -1196,12 +1196,12 @@
       let Violet = document.querySelector(".ca020f0");
       Violet.onclick = function(){
         if (Violet.style.width == '24px') {
-            ColorTable['Violet'] = 0;
+            ColorTable = "";
             Violet.style.width = '20px';
             Violet.style.height = '19px';
             Violet.style.border = '1px rgba(206,214,227,0.7) solid'
         } else {
-            ColorTable['Violet'] = 1;
+            ColorTable = 'Violet';
             Violet.style.width = '24px';
             Violet.style.height = '24px';
             Violet.style.border = '1px rgb(231,76,60) solid';
@@ -1215,12 +1215,12 @@
       let Marron = document.querySelector(".c70150d");
       Marron.onclick = function(){
         if (Marron.style.width == '24px') {
-            ColorTable['Marron'] = 0;
+            ColorTable = "";
             Marron.style.width = '20px';
             Marron.style.height = '19px';
             Marron.style.border = '1px rgba(206,214,227,0.7) solid'
         } else {
-            ColorTable['Marron'] = 1;
+            ColorTable = 'Marron';
             Marron.style.width = '24px';
             Marron.style.height = '24px';
             Marron.style.border = '1px rgb(231,76,60) solid';
@@ -1235,12 +1235,12 @@
       let gris = document.querySelector(".cb3b3b3");
       gris.onclick = function(){
         if (gris.style.width == '24px') {
-            ColorTable['gris'] = 0;
+            ColorTable = "";
             gris.style.width = '20px';
             gris.style.height = '19px';
             gris.style.border = '1px rgba(206,214,227,0.7) solid'
         } else {
-            ColorTable['gris'] = 1;
+            ColorTable = 'gris';
             gris.style.width = '24px';
             gris.style.height = '24px';
             gris.style.border = '1px rgb(231,76,60) solid';
@@ -1255,12 +1255,12 @@
       let S = document.querySelector(".S");
       S.onclick = function(){
         if (S.style.backgroundColor == "") {
-            TailleTable['S'] = "S"
+            TailleTable= "S"
             S.style.backgroundColor = "rgba(232,63,51,1)";
             S.style.color = "#ffffff"
         }
         else{
-            TailleTable['S'] = ""
+            TailleTable= ""
             S.style.backgroundColor = "";
             S.style.color = "#666"
         }
@@ -1273,12 +1273,12 @@
       let L = document.querySelector(".L");
       L.onclick = function(){
         if (L.style.backgroundColor == "") {
-            TailleTable['L'] = "L"
+            TailleTable = "L"
             L.style.backgroundColor = "rgba(232,63,51,1)";
             L.style.color = "#ffffff"
         }
         else{
-            TailleTable['L'] = ""
+            TailleTable = ""
             L.style.backgroundColor = "";
             L.style.color = "#666"
         }
@@ -1291,12 +1291,12 @@
       let M = document.querySelector(".M");
       M.onclick = function(){
         if (M.style.backgroundColor == "") {
-            TailleTable['M'] = "M"
+            TailleTable = "M"
             M.style.backgroundColor = "rgba(232,63,51,1)";
             M.style.color = "#ffffff"
         }
         else{
-            TailleTable['M'] = ""
+            TailleTable = ""
             M.style.backgroundColor = "";
             M.style.color = "#666"
         }
@@ -1309,12 +1309,12 @@
       let XL = document.querySelector(".XL");
       XL.onclick = function(){
         if (XL.style.backgroundColor == "") {
-            TailleTable['XL'] = "XL"
+            TailleTable = "XL"
             XL.style.backgroundColor = "rgba(232,63,51,1)";
             XL.style.color = "#ffffff"
         }
         else{
-            TailleTable['XL'] = ""
+            TailleTable = ""
             XL.style.backgroundColor = "";
             XL.style.color = "#666"
         }
@@ -1327,12 +1327,12 @@
       let XXL = document.querySelector(".XXL");
       XXL.onclick = function(){
         if (XXL.style.backgroundColor == "") {
-            TailleTable['XXL'] = "XXL"
+            TailleTable = "XXL"
             XXL.style.backgroundColor = "rgba(232,63,51,1)";
             XXL.style.color = "#ffffff"
         }
         else{
-            TailleTable['XXL'] = ""
+            TailleTable = ""
             XXL.style.backgroundColor = "";
             XXL.style.color = "#666"
         }
@@ -1343,20 +1343,27 @@
     }
 
   function Commande(Id,Qte){
-    console.log(Id)
-    console.log(Qte)
-    console.log(ColorTable)
-    console.log(TailleTable)
-
     let Data = {
       "Id":Id,
       "Qte":Qte,
       "Couleur":ColorTable,
       "Taille":TailleTable
     }
+    //location.replace('./commande.php?commande=' + Data["Id"]+Data["Qte"]+Data["Couleur"]+Data["Taille"])
+    window.location.href = './commande.php?id=' + Data["Id"]+'&&q='+Data["Qte"]+'&&c='+Data["Couleur"]+'&&t='+Data["Taille"];
+/*    console.log(Data)
+    var xhr = new XMLHttpRequest();
+      xhr.open('GET', './test.php?commande=' + Data["Id"]+Data["Qte"]+Data["Couleur"]+Data["Taille"]);
+      xhr.send(null);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+          console.log(xhr.responseText)
+      }
+    }*/
 
-    console.log(Data)
   }
+
+ 
 
 </script>
 </body>
