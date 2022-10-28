@@ -1,3 +1,3 @@
 <?php 
 
-require 'vues/account_page.php';
+require 'vues/shortcodes.php';

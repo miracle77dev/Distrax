@@ -49,10 +49,10 @@ if (!isset($_SESSION['panier'])) {
                   <tr> 
                       <td class="cart_product"><a href="#"><img src="admin/upload/<?=$Produit->ImagePrincipale?>" alt=""></a></td>
                       <td class="cart_description"><p class="product-name"><a href="#"><?=$Produit->NomProduit?></a></p>
-                        <small><a href="#"><?= $c = (!empty($c)) ? "Coleur : $c": "" ; ?></a></small>
-                        <small><a href="#"><?= $t = (!empty($t)) ? "Taille : $t": "" ; ?></a></small>
+                        <small><a href="#" class="Couleur"><?= $c = (!empty($c)) ? "Coleur : $c": "" ; ?></a></small>
+                        <small><a href="#" class="Taille"><?= $t = (!empty($t)) ? "Taille : $t": "" ; ?></a></small>
                       </td>
-                      <td class="price"><span><?=$Produit->PrixProduit?></span></td>
+                      <td class="price"><span><?=$Produit->PrixProduit?><span style="display: none;" class="Id"><?=$Produit->Id?></span> </span></td>
                       <td class="qty"><?=$q?></td>
                       <td class="price"><span><?=intval($Produit->PrixProduit)*intval($q)?></span></td>
                       <td class="availability in-stock"><span class="label">Gratuit Abidjan</span></td>
@@ -73,28 +73,32 @@ if (!isset($_SESSION['panier'])) {
               <section class="main-container col1-layout">
                 <div class="main container">
                   <div class="page-content">
+                    <form method="post" action="https://google.com">
                     <div class="account-login">
                       <div class="box-authentication">
                         <h4>Vos informations</h4>
                         <p class="before-login-text">Remplissez le formulaire pour la livraison</p>
                         <label for="emmail_login">Nom complet<span class="required">*</span></label>
-                        <input id="emmail_login" type="text" class="form-control">
+                        <input id="emmail_login" type="text" class="form-control Nom">
                         <label for="password_login">Numéro<span class="required">*</span></label>
-                        <input id="password_login" type="password" class="form-control">
+                        <input id="password_login" type="text" class="form-control Numero">
                       </div>
                       <div class="box-authentication">
                         <h4>Adresse ou lieu de livraison</h4>
                         <p>Veuillez renseigner le lieu de livraison</p>
                         <label for="emmail_register">Commune<span class="required">*</span></label>
-                        <input id="emmail_register" type="text" class="form-control">
+                        <input id="emmail_register" type="text" class="form-control Commune">
                         <label for="emmail_register">Lieu de livraison<span class="required">*</span></label>
-                        <input id="emmail_register" type="text" class="form-control">
+                        <input id="emmail_register" type="text" class="form-control Lieu">
+                      </div>
+                      <div class="cart_navigation">
+                        <a class="checkout-btn" onclick="Commande()"><i class="fa fa-check"></i>Valider ma commande</a>
                       </div>
                     </div>
+                    </form>
                   </div>
                 </div>
               </section>
-              <div class="cart_navigation"> <a class="checkout-btn" href="#"><i class="fa fa-check"></i>Valider ma commande</a> </div>
             </div>
           </div>
         </div>
@@ -184,7 +188,27 @@ if (!isset($_SESSION['panier'])) {
 <script type="text/javascript" src="js/jquery-ui.js"></script> 
 
 <!-- main js --> 
-<script type="text/javascript" src="js/main.js"></script> 
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript">
+  function Commande(){
+    if(document.querySelector(".Nom").value!='' && document.querySelector(".Numero").value!='' && document.querySelector(".Commune").value!='' && document.querySelector(".Lieu").value!=''){
+      //var Id = document.querySelector(".Id").innerHTML;
+      //var Couleur = document.querySelector(".Couleur").innerHTML;
+      //var Taille = document.querySelector(".Taille").innerHTML;
+      //var Qte = document.querySelector(".Qte").innerHTML;
+      var Nom = document.querySelector(".Nom").value;
+      var Numero = document.querySelector(".Numero").value;
+      var Commune = document.querySelector(".Commune").value;
+      var Lieu = document.querySelector(".Lieu").value;
+      //Id+"-"+Couleur+"-"+Taille+"-"+Qte+
+      console.log(Nom+"-"+Numero+"-"+Commune+"-"+Lieu)
+    }
+    else{
+      alert("Vérifiez que tout les champs sont rempli avant valider la commande")
+    }
+    
+  }
+</script> 
 
  
 </body>

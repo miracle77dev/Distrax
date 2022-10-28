@@ -1,0 +1,23 @@
+[33mcommit 20301212fc7016e169e302e2fdee281d6aff79e0[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: MiracleDev77 <otchoumou.ang@hotmail.com>
+Date:   Tue Oct 25 16:37:20 2022 +0000
+
+    Travail sur la page produit unique
+
+[33mcommit de9cd660585f2bb51a0f82a82b69815a61429dbd[m
+Author: Otchoumou <otchoumou.ang@hotmail.com>
+Date:   Mon Oct 24 05:53:43 2022 +0000
+
+    Travail sur la page du tunnel
+
+[33mcommit 012d9a76caa4e0625535121c4425c241c368d1ed[m
+Author: MiracleDev77 <otchoumou.ang@hotmail.com>
+Date:   Sat Oct 22 11:55:05 2022 +0000
+
+    Création de function getCategorie et ProduitSimilaireParCategorie
+
+[33mcommit 3faec275f4d1e3d2c33fbcca9fae8eb3f6a1920a[m
+Author: MiracleDev77 <otchoumou.ang@hotmail.com>
+Date:   Sat Oct 22 11:01:38 2022 +0000
+
+    First commit
