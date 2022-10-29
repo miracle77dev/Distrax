@@ -1349,18 +1349,7 @@
       "Couleur":ColorTable,
       "Taille":TailleTable
     }
-    //location.replace('./commande.php?commande=' + Data["Id"]+Data["Qte"]+Data["Couleur"]+Data["Taille"])
     window.location.href = './commande.php?id=' + Data["Id"]+'&&q='+Data["Qte"]+'&&c='+Data["Couleur"]+'&&t='+Data["Taille"];
-/*    console.log(Data)
-    var xhr = new XMLHttpRequest();
-      xhr.open('GET', './test.php?commande=' + Data["Id"]+Data["Qte"]+Data["Couleur"]+Data["Taille"]);
-      xhr.send(null);
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4) {
-          console.log(xhr.responseText)
-      }
-    }*/
-
   }
 
  

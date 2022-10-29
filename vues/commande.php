@@ -52,12 +52,12 @@ if (!isset($_SESSION['panier'])) {
                         <small><a href="#" class="Couleur"><?= $c = (!empty($c)) ? "Coleur : $c": "" ; ?></a></small>
                         <small><a href="#" class="Taille"><?= $t = (!empty($t)) ? "Taille : $t": "" ; ?></a></small>
                       </td>
-                      <td class="price"><span><?=$Produit->PrixProduit?><span style="display: none;" class="Id"><?=$Produit->Id?></span> </span></td>
+                      <td class="price"><span><?=$Produit->PrixProduit?><span style="display: none;" class="Id"><?=$id?></span> </span></td>
                       <td class="qty"><?=$q?></td>
                       <td class="price"><span><?=intval($Produit->PrixProduit)*intval($q)?></span></td>
                       <td class="availability in-stock"><span class="label">Gratuit Abidjan</span></td>
                     </tr>
-         
+
                   </tbody>
                   <tfoot>
                     <tr>
@@ -92,7 +92,7 @@ if (!isset($_SESSION['panier'])) {
                         <input id="emmail_register" type="text" class="form-control Lieu">
                       </div>
                       <div class="cart_navigation">
-                        <a class="checkout-btn" onclick="Commande()"><i class="fa fa-check"></i>Valider ma commande</a>
+                        <a class="checkout-btn" style="cursor:pointer;" onclick="Commande()"><i class="fa fa-check"></i>Valider ma commande</a>
                       </div>
                     </div>
                     </form>
@@ -192,16 +192,15 @@ if (!isset($_SESSION['panier'])) {
 <script type="text/javascript">
   function Commande(){
     if(document.querySelector(".Nom").value!='' && document.querySelector(".Numero").value!='' && document.querySelector(".Commune").value!='' && document.querySelector(".Lieu").value!=''){
-      //var Id = document.querySelector(".Id").innerHTML;
-      //var Couleur = document.querySelector(".Couleur").innerHTML;
-      //var Taille = document.querySelector(".Taille").innerHTML;
-      //var Qte = document.querySelector(".Qte").innerHTML;
+      var Id = document.querySelector(".Id").innerHTML;
+      var Couleur = document.querySelector(".Couleur").innerHTML.split(":")[1];
+      var Taille = document.querySelector(".Taille").innerHTML.split(":")[1];
+      var Qte = document.querySelector(".qty").innerHTML;
       var Nom = document.querySelector(".Nom").value;
       var Numero = document.querySelector(".Numero").value;
       var Commune = document.querySelector(".Commune").value;
       var Lieu = document.querySelector(".Lieu").value;
-      //Id+"-"+Couleur+"-"+Taille+"-"+Qte+
-      console.log(Nom+"-"+Numero+"-"+Commune+"-"+Lieu)
+      window.location.href = './traitement.php?id=' + Id+'&&c='+Couleur+'&&t='+Taille+'&&q='+Qte+'&&n='+Nom+'&&num='+Numero+'&&com='+Commune+'&&l='+Lieu;
     }
     else{
       alert("Vérifiez que tout les champs sont rempli avant valider la commande")

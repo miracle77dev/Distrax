@@ -62,4 +62,19 @@ if (!function_exists('InfoProduit')) {
 		}
 	}
 }
+if (!function_exists('getProduitPrixById')) {
+	function getProduitPrixById($Id){
+		if (!empty($Id)) {
+             GLOBAL $connexion;
+             $r="SELECT PrixProduit FROM produit WHERE Id=?";
+             $req=$connexion->prepare($r);
+             $req->execute([$Id]);
+             $donnee=$req->fetch(PDO::FETCH_OBJ);
+             return $donnee;
+		}
+		else{
+			die('Le produit recherché est introuvable: Vérifiez l\'identifiant du produit');
+		}
+	}
+}
 
