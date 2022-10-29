@@ -375,7 +375,7 @@
         <div class="col-main col-sm-12 col-xs-12">
           <div class="shop-inner">
             <div class="page-title">
-              <h2>Toutes les catég</h2>
+              <h2>Toutes les catégories</h2>
             </div>
            
             <div class="product-grid-area">
@@ -385,19 +385,19 @@
                   <div class="product-item">
                     <div class="item-inner">
                       <div class="product-thumbnail">
-                        <div class="icon-sale-label sale-left">Sale</div>
-                        <div class="icon-new-label new-right">New</div>
+                        <div class="icon-sale-label sale-left">Promo</div>
+                        <?=$New = ($Produit[$i]->NouveauProduit) ? "<div class='icon-new-label new-right'>Nouveau</div>" : "";?>
                         <div class="pr-img-area">
-                         <a title="Ipsums Dolors Untra" href="single_product.php">
+                         <a title="<?=$Produit[$i]->NomProduit ?>" href="single_product.php">
                           <figure>
-                            <img class="first-img" src="vues/images/products/product-11.jpg" alt="HTML template">
+                            <img class="first-img" src="./upload/<?=$Produit[$i]->ImagePrincipale ?>" alt="<?=$Produit[$i]->NomProduit ?>">
                           </figure>
                         </a> 
                         </div>
                         <div class="pr-info-area">
                           <div class="pr-button">
                             <div class="mt-button add_to_compare"> <a href="compare.php" title="Promouvoir le produit"> <i class="fa fa-rocket"></i> </a> </div>
-                            <div class="mt-button add_to_compare"> <a href="compare.php" title="Copier le Tunnel"> <i class="fa fa-link"></i> </a> </div>
+                            <div class="mt-button add_to_compare"> <a href="../produit.php?p=<?=$Produit[$i]->UniqueId ?>" title="Copier le Tunnel"> <i class="fa fa-link"></i> </a> </div>
                             <div class="mt-button add_to_compare"> <a href="compare.php" title="Retirer ce produit"> <i class="fa fa-trash"></i> </a> </div>
                           </div>
                         </div>
@@ -405,11 +405,11 @@
                       </div>
                       <div class="item-info">
                         <div class="info-inner">
-                          <div class="item-title"> <a title="Ipsums Dolors Untra" href="single_product.php">Samsung Note 5</a> </div>
+                          <div class="item-title"> <a title="<?=$Produit[$i]->NomProduit ?>" href="single_product.php"><?=$Produit[$i]->NomProduit ?></a> </div>
                           <div class="item-content">
-                            <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
+                            <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
                             <div class="item-price">
-                              <div class="price-box"> <span class="regular-price"> <span class="price">$125.00</span> </span> </div>
+                              <div class="price-box"> <span class="regular-price"> <span class="price"><?=$Produit[$i]->PrixProduit ?>FCFA</span> </span> </div>
                             </div>
                             <div class="pro-action">
                               <button type="button" class="add-to-cart"><span> Modifier le produit</span> </button>

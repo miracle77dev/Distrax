@@ -20,6 +20,11 @@ if (isset($_GET)) {
 		htmlspecialchars($l),
 		substr(str_shuffle(time().rand(100000, 900000)),0,6)
 	];
-	var_dump($Data);
+	if (addCommande($Data) == 0) {
+		header("location: ./upsell.php");
+	}
+	else{
+		echo "Un problème s'est produit lors de l'ajout de la commande";
+	}
 
 }

@@ -77,4 +77,34 @@ if (!function_exists('getProduitPrixById')) {
 		}
 	}
 }
+if (!function_exists('addCommande')) {
+	function addCommande($Data){
+		if (!empty($Data)) {
+             GLOBAL $connexion;
+             $r="INSERT INTO commande(IdMarchand,Produit,Qte,Pu,Pt,Couleur,Taille,NomClient,NumeroClient,CommuneClient,AdresseLivraison,CommandeId) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+             $req=$connexion->prepare($r);
+             $req->execute($Data);
+             $req->closeCursor();
+             return 0;
+		}
+		else{
+			die('Le produit recherché est introuvable: Vérifiez l\'identifiant du produit');
+		}
+	}
+}
 
+if (!function_exists('getProduitByIdCategorie')) {
+	function getProduitByIdCategorie($IdMarchand,$IdCategorie){
+		if (!empty($IdMarchand)&&!empty($IdCategorie)) {
+             GLOBAL $connexion;
+             $r="SELECT * FROM produit WHERE IdMarchand=? AND IdCategorie=?";
+             $req=$connexion->prepare($r);
+             $req->execute([$IdMarchand,$IdCategorie]);
+             $donnee=$req->fetchAll(PDO::FETCH_OBJ);
+             return $donnee;
+		}
+		else{
+			die('Le produit recherché est introuvable');
+		}
+	}
+}

@@ -6,6 +6,7 @@ if (isset($_GET['p']) && !empty($_GET['p'])) {
 	$_SESSION['page'] = htmlspecialchars($_GET['p']);
 	$UniqueId = htmlspecialchars($_GET['p']); 
 	$Produit=getProduitByUniqueId($UniqueId);
+	$_SESSION['IdCategorie'] = $Produit->IdCategorie;
 	if ($Produit==false) {
 		header("location: erreur.php");
 	}

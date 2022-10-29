@@ -38,7 +38,7 @@ if (!isset($_SESSION['panier'])) {
                   <thead>
                     <tr>
                       <th class="cart_product">Product</th>
-                      <th>Qte</th>
+                      <th>Désignation</th>
                       <th>PU</th>
                       <th>Qte</th>
                       <th>Total</th>
@@ -126,7 +126,7 @@ if (!isset($_SESSION['panier'])) {
               <div class="icon-wrapper"><i class="fa fa-rotate-right"></i></div>
               <div class="service-wrapper">
                 <h3>Retour sur 30 jours</h3>
-                <p>Garantie de remboursement si le produit ne repond pas à vos attente</p>
+                <p>Garantie de remboursement si le produit ne repond pas à vos attentes</p>
               </div>
             </div>
           </div>
