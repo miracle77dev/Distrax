@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 29 oct. 2022 à 11:55
+-- Généré le : mar. 01 nov. 2022 à 11:11
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -115,6 +115,37 @@ INSERT INTO `couleur` (`Id`, `CouleurArticle`, `CodeRgb`) VALUES
 (9, 'violet', '#a020f0'),
 (10, 'gris', '#b3b3b3'),
 (11, 'marron', '#70150d');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `marchand`
+--
+
+DROP TABLE IF EXISTS `marchand`;
+CREATE TABLE IF NOT EXISTS `marchand` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `IdMarchand` int(11) NOT NULL,
+  `ConfirmationCode` int(11) DEFAULT NULL,
+  `Nom` varchar(255) NOT NULL,
+  `Numero` varchar(255) NOT NULL,
+  `Email` varchar(255) NOT NULL,
+  `PageFacebook` varchar(255) NOT NULL,
+  `DateCreation` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `DernierPaiement` datetime DEFAULT NULL,
+  `DernierConnexion` date DEFAULT NULL,
+  `Active` int(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`Id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `marchand`
+--
+
+INSERT INTO `marchand` (`Id`, `IdMarchand`, `ConfirmationCode`, `Nom`, `Numero`, `Email`, `PageFacebook`, `DateCreation`, `DernierPaiement`, `DernierConnexion`, `Active`) VALUES
+(1, 514407060, NULL, 'Otchoumou Angbeni', '0777621179', 'otchoumou.ang@hotmail.com', 'Sanflan Technology', '2022-11-01 11:00:01', NULL, NULL, 0),
+(2, 2456837, 2456837, 'Otchoumou Angbeni', '0777621179', 'otchoumou.ang@hotmail.com', 'Sanflan Technology', '2022-11-01 11:09:58', NULL, NULL, 0),
+(3, 797621, 797621, 'Otchoumou Angbeni', '0103368827', 'opomen8@gmail.com', 'Codeinnova', '2022-11-01 11:10:48', NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
