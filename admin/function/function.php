@@ -52,6 +52,18 @@ if (!function_exists('getCategorie')) {
    }
 }
 
+if (!function_exists('getCategorieByIdMarchand')) {
+   function getCategorieByIdMarchand($IdMarchand){
+             GLOBAL $Connexion;
+             $r="SELECT Id,Categorie FROM categorie WHERE idMarchand = ?";
+             $req=$Connexion->prepare($r);
+             $req->execute([$IdMarchand]);
+             $donnee=$req->fetchall(PDO::FETCH_OBJ);
+             return $donnee;
+     
+   }
+}
+
 if (!function_exists('Upload')) {
    function Upload(){
       $Data = [];
@@ -88,7 +100,7 @@ if (!function_exists('MultipleUpload')) {
       if (isset($_FILES['PhotoAdditionnelles'])){
          $count=count($_FILES['PhotoAdditionnelles']['name']);
          if ($count>3) {
-           return 2;
+           return 1;
          }
          else{
 

@@ -48,6 +48,9 @@ if (isset($_POST['addBtn'])) {
 
 
 		$MultipleUpload = MultipleUpload();
+		if ($MultipleUpload == 1) {
+			$Data[0][] = "Vérifiez que tout les champs sont rempli et réessayez";
+		}
 		if ($MultipleUpload !=0 && $MultipleUpload !=1) {
 			if (count($MultipleUpload) == 1) {
 				$Data[1]['DeuxiemeImage'] = $MultipleUpload[0][0];

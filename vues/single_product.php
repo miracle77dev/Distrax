@@ -97,7 +97,7 @@
               </div>
               <div class="price-box">
                 <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"><?=$Produit->PrixProduit?> FCFA</span> </p>
-                <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> $359.99 </span> </p>
+                <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"><?=$Produit->PrixProduit+$Produit->PrixProduit*63/100?> FCFA</span> </p>
               </div>
               <div class="ratings">
                 <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <!-- <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i>  --></div>

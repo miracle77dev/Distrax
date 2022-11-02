@@ -230,7 +230,7 @@
           <div class="row">
             <div class="col-sm-4 col-md-4 col-xs-12"> 
               <!-- Default Welcome Message -->
-              <div class="welcome-msg hidden-xs hidden-sm">Default welcome msg! </div>
+              <div class="welcome-msg hidden-xs hidden-sm">i-Land africa </div>
               <!-- Language &amp; Currency wrapper -->
               <div class="language-currency-wrapper">
                 <div class="inner-cl">
@@ -246,7 +246,7 @@
                     </ul>
                   </div>
                   <div class="block block-currency">
-                    <div class="item-cur"><span>USD</span><i class="fa fa-angle-down"></i></div>
+                    <div class="item-cur"><span>FCFA</span><i class="fa fa-angle-down"></i></div>
                     <ul>
                       <li><a href="#"><span class="cur_icon">€</span>EUR</a></li>
                       <li><a href="#"><span class="cur_icon">¥</span>JPY</a></li>
@@ -275,8 +275,9 @@
                       <li><a href="register_page.php">Register</a></li>
                     </ul>
                   </div>
+
                 </li>
-                <li><a title="login" href="account_page.php"><span>Login</span></a></li>
+                <li><a title="login" href="../deconnect.php"><span>Se déconnecter</span></a></li>
               </ul>
             </div>
           </div>
@@ -299,18 +300,10 @@
                   <form>
                     <div class="input-group">
                       <select class="cate-dropdown hidden-xs hidden-sm" name="category_id">
-                        <option>All Categories</option>
-                        <option>women</option>
-                        <option>&nbsp;&nbsp;&nbsp;Chair </option>
-                        <option>&nbsp;&nbsp;&nbsp;Decoration</option>
-                        <option>&nbsp;&nbsp;&nbsp;Lamp</option>
-                        <option>&nbsp;&nbsp;&nbsp;Handbags </option>
-                        <option>&nbsp;&nbsp;&nbsp;Sofas </option>
-                        <option>&nbsp;&nbsp;&nbsp;Essential </option>
-                        <option>Men</option>
-                        <option>Electronics</option>
-                        <option>&nbsp;&nbsp;&nbsp;Mobiles </option>
-                        <option>&nbsp;&nbsp;&nbsp;Music &amp; Audio </option>
+                        <option>Toutes les categories</option>
+                        <?php for ($i=0; $i <count($Categorie) ; $i++) :?>
+                          <option><?=utf8_decode($Categorie[$i]->Categorie)?></option>
+                        <?php endfor; ?>
                       </select>
                       <input type="text" class="form-control" placeholder="Rechercher un produit..." name="search">
                       <button class="btn-search" type="button"><i class="fa fa-search"></i></button>
@@ -388,7 +381,7 @@
                         <div class="icon-sale-label sale-left">Promo</div>
                         <?=$New = ($Produit[$i]->NouveauProduit) ? "<div class='icon-new-label new-right'>Nouveau</div>" : "";?>
                         <div class="pr-img-area">
-                         <a title="<?=$Produit[$i]->NomProduit ?>" href="single_product.php">
+                         <a title="<?=$Produit[$i]->NomProduit ?>" href="../produit.php?p=<?=$Produit[$i]->UniqueId ?>">
                           <figure>
                             <img class="first-img" src="./upload/<?=$Produit[$i]->ImagePrincipale ?>" alt="<?=$Produit[$i]->NomProduit ?>">
                           </figure>
@@ -396,16 +389,16 @@
                         </div>
                         <div class="pr-info-area">
                           <div class="pr-button">
-                            <div class="mt-button add_to_compare"> <a href="compare.php" title="Promouvoir le produit"> <i class="fa fa-rocket"></i> </a> </div>
+                            <div class="mt-button add_to_compare"> <a href="" title="Promouvoir le produit"> <i class="fa fa-rocket"></i> </a> </div>
                             <div class="mt-button add_to_compare"> <a href="../produit.php?p=<?=$Produit[$i]->UniqueId ?>" title="Copier le Tunnel"> <i class="fa fa-link"></i> </a> </div>
-                            <div class="mt-button add_to_compare"> <a href="compare.php" title="Retirer ce produit"> <i class="fa fa-trash"></i> </a> </div>
+                            <div class="mt-button add_to_compare"> <a href="" title="Retirer ce produit"> <i class="fa fa-trash"></i> </a> </div>
                           </div>
                         </div>
                         
                       </div>
                       <div class="item-info">
                         <div class="info-inner">
-                          <div class="item-title"> <a title="<?=$Produit[$i]->NomProduit ?>" href="single_product.php"><?=$Produit[$i]->NomProduit ?></a> </div>
+                          <div class="item-title"> <a title="<?=$Produit[$i]->NomProduit ?>" href="../produit.php?p=<?=$Produit[$i]->UniqueId ?>"><?=$Produit[$i]->NomProduit ?></a> </div>
                           <div class="item-content">
                             <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
                             <div class="item-price">
@@ -424,6 +417,7 @@
 
               </ul>
             </div>
+            <?php if (count($Produit) >20) :?>
             <div class="pagination-area ">
               <ul>
                 <li><a class="active" href="#">1</a></li>
@@ -432,124 +426,14 @@
                 <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
               </ul>
             </div>
+            <?php endif; ?>
           </div>
         </div>
       </div>
     </div>
   </div>
  <br><br>
-  <!-- Footer -->
-  <footer>
-    <div class="footer-contact">
-      <div class="container">
-        <div class="row">
-          
-          <div class="col-sm-4">
-            <div class="footer-contact-item">
-              <div class="footer-contact-icon"> <i class="fa fa-phone"></i> </div>
-              <div class="footer-contact-text"> + (800) 0123 456 789 </div>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6 col-md-3 col-xs-12">
-          <div class="footer-logo"><a href="index.php"><img src="vues/images/footer-logo.png" alt="fotter logo"></a> </div>
-          <p>Lorem Ipsum is simply dummy text of the print and typesetting industry. Ut pharetra augue nec augue. Nam elit agna, endrerit sit amet.</p>
-          <div class="social">
-            <ul class="inline-mode">
-              <li class="social-network fb"><a title="Connect us on Facebook" target="_blank" href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
-              <li class="social-network googleplus"><a title="Connect us on Google+" target="_blank" href="https://plus.google.com/"><i class="fa fa-google"></i></a></li>
-              <li class="social-network tw"><a title="Connect us on Twitter" target="_blank" href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
-              <li class="social-network linkedin"><a title="Connect us on Pinterest" target="_blank" href="https://www.pinterest.com/"><i class="fa fa-pinterest"></i></a></li>
-              <li class="social-network rss"><a title="Connect us on Instagram" target="_blank" href="https://instagram.com/"><i class="fa fa-instagram"></i></a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-2 col-xs-12 collapsed-block">
-          <div class="footer-links">
-            <h3 class="links-title">Information<a class="expander visible-xs" href="#TabBlock-1">+</a></h3>
-            <div class="tabBlock" id="TabBlock-1">
-              <ul class="list-links list-unstyled">
-                <li><a href="#s">Delivery Information</a></li>
-                <li><a href="#">Discount</a></li>
-                <li><a href="sitemap.php">Sitemap</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="faq.php">FAQs</a></li>
-                <li><a href="#">Terms &amp; Condition</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3 col-md-2 col-xs-12 collapsed-block">
-          <div class="footer-links">
-            <h3 class="links-title">Insider<a class="expander visible-xs" href="#TabBlock-3">+</a></h3>
-            <div class="tabBlock" id="TabBlock-3">
-              <ul class="list-links list-unstyled">
-                <li><a href="sitemap.php"> Sites Map </a></li>
-                <li><a href="#">News</a></li>
-                <li><a href="#">Trends</a></li>
-                <li><a href="about_us.php">About Us</a></li>
-                <li><a href="contact_us.php">Contact Us</a></li>
-                <li><a href="#">My Orders</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3 col-md-2 col-xs-12 collapsed-block">
-          <div class="footer-links">
-            <h3 class="links-title">Service<a class="expander visible-xs" href="#TabBlock-4">+</a></h3>
-            <div class="tabBlock" id="TabBlock-4">
-              <ul class="list-links list-unstyled">
-                <li><a href="account_page.php">Account</a></li>
-                <li><a href="wishlist.php">Wishlist</a></li>
-                <li><a href="shopping_cart.php">Shopping Cart</a></li>
-                <li><a href="#">Return Policy</a></li>
-                <li><a href="#">Special</a></li>
-                <li><a href="#">Lookbook</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 col-xs-12 collapsed-block">
-          <div class="footer-links">
-            <h3 class="links-title">Working hours<a class="expander visible-xs" href="#TabBlock-5">+</a></h3>
-            <div class="tabBlock" id="TabBlock-5">
-              <div class="footer-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</div>
-              <div class="footer-description"> <b>Monday-Friday:</b> 8.30 a.m. - 5.30 p.m.<br>
-                <b>Saturday:</b> 9.00 a.m. - 2.00 p.m.<br>
-                <b>Sunday:</b> Closed </div>
-              <div class="payment">
-                <ul>
-                  <li><a href="#"><img title="Visa" alt="Visa" src="vues/images/visa.png"></a></li>
-                  <li><a href="#"><img title="Paypal" alt="Paypal" src="vues/images/paypal.png"></a></li>
-                  <li><a href="#"><img title="Discover" alt="Discover" src="vues/images/discover.png"></a></li>
-                  <li><a href="#"><img title="Master Card" alt="Master Card" src="vues/images/master-card.png"></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="footer-coppyright">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6 col-xs-12 coppyright"> Copyright © 2017 <a href="#"> ShopMart </a>. All Rights Reserved. </div>
-          <div class="col-sm-6 col-xs-12">
-            <ul class="footer-company-links">
-              <li> <a href="about_us.php">About ShopMart</a> </li>
-              <li> <a href="#">Careers</a> </li>
-              <li> <a href="#">Privacy Policy</a> </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+ 
   <a href="#" id="back-to-top" title="Back to top"><i class="fa fa-angle-up"></i></a> </div>
 
 <!-- End Footer --> 
@@ -557,24 +441,13 @@
 
 <!-- jquery js --> 
 <script type="text/javascript" src="js/jquery.min.js"></script> 
-
-<!-- bootstrap js --> 
 <script type="text/javascript" src="js/bootstrap.min.js"></script> 
-
-<!-- owl.carousel.min js --> 
 <script type="text/javascript" src="js/owl.carousel.min.js"></script> 
-
-<!-- bxslider js --> 
 <script type="text/javascript" src="js/jquery.bxslider.js"></script> 
-
-<!-- jquery.mobile-menu js --> 
 <script type="text/javascript" src="js/mobile-menu.js"></script> 
-
-<!--jquery-ui.min js --> 
 <script type="text/javascript" src="js/jquery-ui.js"></script> 
-
-<!-- main js --> 
 <script type="text/javascript" src="js/main.js"></script>
+
 </body>
 
 </html>

@@ -13,11 +13,12 @@ class Produit
 
 	public function AddProduit($Data){
 		$Req='INSERT INTO 
-		produit(IdCategorie,NomProduit,PrixProduit,QteProduit,PetiteDescription,GrandeDescription,NouveauProduit,Couleur,Taille,ImagePrincipale,DeuxiemeImage,TroisiemeImage,QuatriemeImage,Tag,Emplacement,UniqueId)
-		VALUES(:IdCategorie,:NomProduit,:PrixProduit,:QteProduit,:PetiteDescription,:GrandeDescription,:NouveauProduit,:Couleur,:Taille,:ImagePrincipale,:DeuxiemeImage,:TroisiemeImage,:QuatriemeImage,:Tag,:Emplacement,:UniqueId)';
+		produit(IdMarchand,IdCategorie,NomProduit,PrixProduit,QteProduit,PetiteDescription,GrandeDescription,NouveauProduit,Couleur,Taille,ImagePrincipale,DeuxiemeImage,TroisiemeImage,QuatriemeImage,Tag,Emplacement,UniqueId)
+		VALUES(:IdMarchand,:IdCategorie,:NomProduit,:PrixProduit,:QteProduit,:PetiteDescription,:GrandeDescription,:NouveauProduit,:Couleur,:Taille,:ImagePrincipale,:DeuxiemeImage,:TroisiemeImage,:QuatriemeImage,:Tag,:Emplacement,:UniqueId)';
 
 		$q=$this->Connexion->prepare($Req);
 		$q->execute([
+			':IdMarchand'=>$_SESSION['IdMarchand'],
 			':IdCategorie'=>$Data['Categorie'],
 			':NomProduit'=>$Data['NomProduit'],
 			':PrixProduit'=>$Data['PrixProduit'],
@@ -48,17 +49,17 @@ class Produit
 
 	public function AddCategorie($Data)
 	{
-		$Req = "INSERT INTO categorie(Categorie,Description) VALUES(?,?)";
+		$Req = "INSERT INTO categorie(IdMarchand,Categorie,Description) VALUES(?,?,?)";
 		$q=$this->Connexion->prepare($Req);
 		$q->execute($Data);
 		$q->closeCursor();
 		return 1;
 	}
-	public function getProduit()
+	public function getProduit($IdMarchand)
 	{
-		$Req = "SELECT * FROM produit";
+		$Req = "SELECT * FROM produit WHERE IdMarchand = ?";
 		$q=$this->Connexion->prepare($Req);
-		$q->execute();
+		$q->execute([$IdMarchand]);
 		$Donnee=$q->fetchall(PDO::FETCH_OBJ);
 		$q->closeCursor();
 		return $Donnee;

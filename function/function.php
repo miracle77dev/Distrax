@@ -51,7 +51,7 @@ if (!function_exists('InfoProduit')) {
 	function InfoProduit($Id){
 		if (!empty($Id)) {
              GLOBAL $connexion;
-             $r="SELECT NomProduit,PrixProduit,ImagePrincipale FROM produit WHERE Id=?";
+             $r="SELECT IdMarchand,IdCategorie,NomProduit,PrixProduit,ImagePrincipale FROM produit WHERE Id=?";
              $req=$connexion->prepare($r);
              $req->execute([$Id]);
              $donnee=$req->fetch(PDO::FETCH_OBJ);

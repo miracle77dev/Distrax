@@ -21,12 +21,19 @@ class Marchand
 		return 0;
 	}
 
+	public function getMarchandByIdMarchand($IdMarchand){
+		$Req = "SELECT * FROM marchand WHERE IdMarchand = ?";
+		$q = $this->Connexion->prepare($Req);
+		$q->execute([$IdMarchand]);
+		return $q->fetchAll(PDO::FETCH_OBJ);
+	}
+
 	public function CodeVerification($Data)
 	{
 		$Req = "SELECT COUNT(ConfirmationCode) AS c FROM marchand WHERE IdMarchand = ? AND ConfirmationCode = ?";
 		$q=$this->Connexion->prepare($Req);
 		$q->execute($Data);
-		$Retour = $req->fetch(PDO::FETCH_OBJ);
+		$Retour = $q->fetch(PDO::FETCH_OBJ);
 
 		if ($Retour->c == 1) {
 			return 0; #Le compte existe

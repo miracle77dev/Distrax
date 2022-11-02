@@ -1,13 +1,14 @@
 <?php 
+session_start();
 require './models/db.php';
 require './function/function.php';
 if (isset($_GET)) {
 	extract($_GET);
 	$Info=InfoProduit(htmlentities($_GET['id']));
 	//
-	$IdMarchand = 1;
+	$_SESSION['IdCategorie'] = $Info->IdCategorie;
 	$Data = [
-		$IdMarchand,
+		$Info->IdMarchand,
 		$Info->NomProduit,
 		htmlspecialchars(intval($q)),
 		intval($Info->PrixProduit),
