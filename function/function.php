@@ -81,7 +81,7 @@ if (!function_exists('addCommande')) {
 	function addCommande($Data){
 		if (!empty($Data)) {
              GLOBAL $connexion;
-             $r="INSERT INTO commande(IdMarchand,Produit,Qte,Pu,Pt,Couleur,Taille,NomClient,NumeroClient,CommuneClient,AdresseLivraison,CommandeId) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+             $r="INSERT INTO commande(IdMarchand,ImagePrincipale,Produit,Qte,Pu,Pt,Couleur,Taille,NomClient,NumeroClient,CommuneClient,AdresseLivraison,CommandeId) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
              $req=$connexion->prepare($r);
              $req->execute($Data);
              $req->closeCursor();

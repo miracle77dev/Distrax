@@ -42,7 +42,7 @@ if (!isset($_SESSION['panier'])) {
                       <th>PU</th>
                       <th>Qte</th>
                       <th>Total</th>
-                      <th  class="action"><i class="fa fa-truck"></i> Livraison</th>
+                      <th class="action"><i class="fa fa-truck"></i> Livraison</th>
                     </tr>
                   </thead>
                   <tbody>

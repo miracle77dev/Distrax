@@ -3,19 +3,31 @@ session_start();
 require '../admin/models/db.php';
 require '../admin/class/marchand.php';
 $Marchand = new Marchand($Connexion);
-if (isset($_POST['add'])&&!empty($_POST['Nom'])&&!empty($_POST['Numero'])&&!empty($_POST['Email'])&&!empty($_POST['Page'])) :?>
+if (isset($_POST['add'])&&!empty($_POST['Nom'])&&!empty($_POST['Numero'])&&!empty($_POST['Email'])&&!empty($_POST['Pass'])) :?>
 	<?php 
 		extract($_POST);
 		$x = rand(807,5789);
 		$Code = rand(9999,999999);
 		$CodeFinal = substr(str_shuffle($x*$Code),3);
 		$_SESSION['IdMarchand'] = $CodeFinal;
-		$Data = [$CodeFinal,$CodeFinal,htmlspecialchars($Nom),htmlspecialchars($Numero),htmlspecialchars($Email),htmlspecialchars($Page)];
+		$Data = [$CodeFinal,$CodeFinal,htmlspecialchars($Nom),htmlspecialchars($Numero),htmlspecialchars($Email),md5(htmlspecialchars($Pass))];
 		$Marchand->AddMarchand($Data);
 		header('location: ../admin/index.php');
 	?>
-<?php else: ?>
+<?php elseif(isset($_POST['connect'])&&!empty($_POST['login'])&&!empty($_POST['Pass'])) :?>
+	<?php 
+		extract($_POST);
+		$Data = [htmlspecialchars($login),md5(htmlspecialchars($Pass))];
+		if ($Marchand->ConnectUserAccount($Data)==0) {
+			$_SESSION['IdMarchand'] = $Marchand->getIdMarchandByEmailOrNumb($login)->IdMarchand;
+			header('location: ../admin/index.php');
+		 }
+		else{
+			header('location: ./index.php?e');
+		}
 
+	 ?>
+<?php else: ?>
 	<!doctype html>
 		<html lang="fr_FR">
 		<head>
@@ -278,7 +290,9 @@ if (isset($_POST['add'])&&!empty($_POST['Nom'])&&!empty($_POST['Numero'])&&!empt
 	data-frame_999="y:50,33,25,15;o:0;st:w;sp:1000;"
 	style="z-index:13;"
 	><img loading="lazy" src="./wp-content/uploads/2020/02/illustration2.png" alt="illustration2" class="tp-rs-img" width="807" height="622" data-no-retina> 
-								</rs-layer><!--
+								</rs-layer>
+
+								<!--
 
 								--><h1
 								id="slider-4-slide-4-layer-1" 
@@ -293,12 +307,13 @@ if (isset($_POST['add'])&&!empty($_POST['Nom'])&&!empty($_POST['Numero'])&&!empt
 								data-frame_999="o:0;st:w;"
 								style="z-index:17;font-family:Poppins;"
 								>Vendez rapidement<br> <span style="color:#5a49f8">Vendez 17 x plus</span> 
-								</h1><!--
 
-								--><rs-layer
+								</h1>
+
+								<rs-layer
 								id="slider-4-slide-4-layer-2" 
 								data-type="text"
-								data-color="#5a49f8"
+								data-color="<?=$c= isset($_GET["e"])?"#fa0c2a":"#5a49f8" ?>" 
 								data-rsp_ch="on"
 								data-xy="x:l,l,l,c;xo:30px,19px,20px,0;yo:325px,216px,115px,390px;"
 								data-text="w:normal;s:16,16,16,15;l:25,22,22,26;ls:4px,2px,2px,1px;fw:500;"
@@ -307,10 +322,10 @@ if (isset($_POST['add'])&&!empty($_POST['Nom'])&&!empty($_POST['Numero'])&&!empt
 								data-frame_999="o:0;e:power4.inOut;st:w;sp:1200;"
 								data-frame_999_sfx="se:blocktotop;"
 								style="z-index:18;font-family:Roboto;"
-								>iLand Africa 
-								</rs-layer><!--
+								><?=$e = isset($_GET["e"])?"Login ou Mot de passe incorrect":"iLand Africa" ?>[<a href="" style="color:black;" data-toggle="modal" data-target="#exampleModal">Se connecter</a>] 
 
-								--><p
+								</rs-layer>
+								<!----><p
 								id="slider-4-slide-4-layer-3" 
 								class="rs-layer"
 								data-type="text"
@@ -391,10 +406,12 @@ if (isset($_POST['add'])&&!empty($_POST['Nom'])&&!empty($_POST['Numero'])&&!empt
 								data-frame_1="e:sine.in;st:4500;sp:500;"
 								data-frame_999="o:0;st:w;"
 								style="z-index:15;font-family:Roboto;"
-								><a class="button-gradient-1" href="#contact">S'inscrire<i class="flaticon-next"></i></a> 
-								</rs-layer><!--
+								>
+								<a class="button-gradient-1" href="#contact">S'inscrire<i class="flaticon-next"></i></a>
 
-								--><rs-layer
+
+								</rs-layer>
+								<rs-layer
 								id="slider-4-slide-4-layer-11" 
 								class="slider2_animate1"
 								data-type="image"
@@ -596,6 +613,38 @@ if (isset($_POST['add'])&&!empty($_POST['Nom'])&&!empty($_POST['Numero'])&&!empt
 				</div>
 			</div>
 		</section>
+
+		<!-- Modal -->
+		<style type="text/css">
+			.inputModal:focus{
+				 outline:  none;
+				 border: 0px;
+			}
+		</style>
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel" style="color:#5a49f8;">Se connecter</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <form action="" method="POST">
+			      <div class="modal-body">
+			        <input type="text" name="login" placeholder="Email ou Numéro" class="inputModal" style="border: none;color: #5a49f8;">
+			        <input type="password" name="Pass" placeholder="Mot de passe" class="inputModal" style="border: none;color: #5a49f8;">
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+			        <button type="submit" name="connect" class="btn btn-primary" style="background:#5a49f8;">Connexion</button>
+			      </div>
+		      </form>
+		    </div>
+		  </div>
+		</div>
+		<!-- End modal -->
+
 		<section class="elementor-section elementor-top-section elementor-element elementor-element-bb698d7 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="bb698d7" data-element_type="section" id="services" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
 			<div class="elementor-container elementor-column-gap-default">
 				<div class="elementor-row">
@@ -941,10 +990,17 @@ if (isset($_POST['add'])&&!empty($_POST['Nom'])&&!empty($_POST['Numero'])&&!empt
 											<div class="col-sm-6">
 												<div class="form-group"><span class="wpcf7-form-control-wrap email-706"><input type="email" name="Email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email form-control" aria-required="true" aria-invalid="false" placeholder="Adresse Email*" required /></span></div>
 											</div>
+											<div class="col-sm-12">
+												<div class="form-group">
+													<span class="wpcf7-form-control-wrap text-665">
+														<input type="password" name="Pass" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Définir un mot de passe*" required />
+													</span>
+												</div>
+											</div>
 											<div class="col-sm-6">
 												<div class="form-group">
 													<span class="wpcf7-form-control-wrap text-665">
-														<input type="text" name="Page" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Nom de votre Page Facebook*" required />
+														<!-- <input type="text" name="Page" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Nom de votre Page Facebook*" required /> -->
 													</span>
 												</div>
 											</div>

@@ -51,6 +51,17 @@ if (!function_exists('getCategorie')) {
      
    }
 }
+if (!function_exists('getCommandeNonTraite')) {
+   function getCommandeNonTraite($IdMarchand){
+             GLOBAL $Connexion;
+             $r="SELECT Produit,Pu,ImagePrincipale, SUM(Qte) AS Qte FROM commande WHERE IdMarchand = ? AND Statut = 0 GROUP BY Produit";
+             $req=$Connexion->prepare($r);
+             $req->execute([$IdMarchand]);
+             $donnee=$req->fetchall(PDO::FETCH_OBJ);
+             return $donnee;
+     
+   }
+}
 
 if (!function_exists('getCategorieByIdMarchand')) {
    function getCategorieByIdMarchand($IdMarchand){

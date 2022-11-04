@@ -19,7 +19,7 @@
 
 <!-- CSS Style -->
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="vues/style.css">
 </head>
 
 <body class="manufacturers_page">

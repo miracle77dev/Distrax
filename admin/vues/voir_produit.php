@@ -230,56 +230,33 @@
           <div class="row">
             <div class="col-sm-4 col-md-4 col-xs-12"> 
               <!-- Default Welcome Message -->
-              <div class="welcome-msg hidden-xs hidden-sm">i-Land africa </div>
+              <div class="welcome-msg hidden-xs hidden-sm">i-Land africa pour les africains</div>
               <!-- Language &amp; Currency wrapper -->
-              <div class="language-currency-wrapper">
-                <div class="inner-cl">
-                  <div class="block block-language form-language">
-                    <div class="lg-cur"><span><img src="vues/images/flag-default.jpg" alt="French"><span class="lg-fr">French</span><i class="fa fa-angle-down"></i></span></div>
-                    <ul>
-                      <li><a class="selected" href="#"><img src="vues/images/flag-english.jpg" alt="english"><span>English</span></a></li>
-                      <li><a href="#"><img src="vues/images/flag-default.jpg" alt="French"><span>French</span></a></li>
-                      <li><a href="#"><img src="vues/images/flag-german.jpg" alt="German"><span>German</span></a></li>
-                      <li><a href="#"><img src="vues/images/flag-brazil.jpg" alt="Brazil"><span>Brazil</span></a></li>
-                      <li><a href="#"><img src="vues/images/flag-chile.jpg" alt="Chile"><span>Chile</span></a></li>
-                      <li><a href="#"><img src="vues/images/flag-spain.jpg" alt="Spain"><span>Spain</span></a></li>
-                    </ul>
-                  </div>
-                  <div class="block block-currency">
-                    <div class="item-cur"><span>FCFA</span><i class="fa fa-angle-down"></i></div>
-                    <ul>
-                      <li><a href="#"><span class="cur_icon">€</span>EUR</a></li>
-                      <li><a href="#"><span class="cur_icon">¥</span>JPY</a></li>
-                      <li><a class="selected" href="#"><span class="cur_icon">$</span>USD</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+              
             </div>
             
-            <!-- top links -->
-            <div class="headerlinkmenu col-md-8 col-sm-8 col-xs-12"> <span class="phone  hidden-xs hidden-sm">Call Us: +123.456.789</span>
+            <div class="headerlinkmenu col-md-8 col-sm-8 col-xs-12"> <span class="phone  hidden-xs hidden-sm">Joindre I-Land: +2250.749.399.436</span>
               <ul class="links">
-                <li class="hidden-xs"><a title="Help Center" href="#"><span>Help Center</span></a></li>
-                <li><a title="Store Locator" href="#"><span>Store Locator</span></a></li>
-                <li><a title="Checkout" href="checkout.php"><span>Checkout</span></a></li>
+                <li class="hidden-xs"><a title="Help Center" href="#"><span>Centre d'aide</span></a></li>
+                <li><a title="Store Locator" href="#"><span>Mon business</span></a></li>
+                <li><a title="Checkout" href="checkout.php"><span>Mois en cours</span></a></li>
                 <li>
-                  <div class="dropdown"><a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><span>My Account</span> <i class="fa fa-angle-down"></i></a>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="account_page.php">Account</a></li>
-                      <li><a href="wishlist.php">Wishlist</a></li>
-                      <li><a href="orders_list.php">Order Tracking</a></li>
-                      <li><a href="about_us.php">About us</a></li>
+                  <div class="dropdown"><a class="current-open " onclick="Controle()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><span>Mon Compte</span> <i class="fa fa-angle-down"></i></a>
+                    <ul class="dropdown-menu cache" role="menu" style="display:none;">
+                      <li><a href="categorie.php">Ajouter une catégorie</a></li>
+                      <li><a href="add_produit.php">Ajouter un produit</a></li>
+                      <li><a href="about_us.php">Traitement</a></li>
+                      <li><a href="account_page.php">Analyste</a></li>
                       <li class="divider"></li>
-                      <li><a href="account_page.php">Log In</a></li>
-                      <li><a href="register_page.php">Register</a></li>
+                      <li><a href="../deconnect.php">Se déconnecter</a></li>
                     </ul>
                   </div>
 
                 </li>
-                <li><a title="login" href="../deconnect.php"><span>Se déconnecter</span></a></li>
+               
               </ul>
             </div>
+            
           </div>
         </div>
       </div>
@@ -320,33 +297,30 @@
               <div class="top-cart-contain">
                 <div class="mini-cart">
                   <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle"> <a href="#">
-                    <div class="cart-icon"><i class="icon-basket-loaded icons"></i><span class="cart-total">3</span></div>
+                    <div class="cart-icon"><i class="icon-basket-loaded icons"></i><span class="cart-total"><?=count($Commande) ?></span></div>
                     <div class="shoppingcart-inner hidden-xs"><span class="cart-title">Commande(s) en cours</span> </div>
                     </a></div>
                   <div>
                     <div class="top-cart-content">
                       <div class="block-subtitle hidden">Recently added items</div>
                       <ul id="cart-sidebar" class="mini-products-list">
-                        <li class="item odd"> <a href="shopping_cart.php" title="Product title here" class="product-image"><img src="vues/images/products/product-8.jpg" alt="html Template" width="65"></a>
+                        <?php 
+                            $Total = 0;
+                         ?>
+                        <?php for ($i=0; $i <count($Commande) ; $i++) :?>
+                        <li class="item odd"> <a href="#" title="<?=$Commande[$i]->Produit ?>" class="product-image"><img src="upload/<?=$Commande[$i]->ImagePrincipale ?>" alt="html Template" width="65"></a>
                           <div class="product-details"> <a href="#" title="Remove This Item" class="remove-cart"><i class="pe-7s-trash"></i></a>
-                            <p class="product-name"><a href="shopping_cart.php">Lorem ipsum dolor sit amet Consectetur</a> </p>
-                            <strong>1</strong> x <span class="price">$20.00</span> </div>
+                            <p class="product-name"><a href="shopping_cart.php"><?=$Commande[$i]->Produit ?></a> </p>
+                            <strong><?=$Commande[$i]->Qte ?></strong> x <span class="price"><?=$Commande[$i]->Pu ?> FCFA</span> </div>
+                            <?php 
+                                  $Total += $Commande[$i]->Pu*$Commande[$i]->Qte;
+                             ?>
                         </li>
-                        <li class="item even"> <a href="shopping_cart.php" title="Product title here" class="product-image"><img src="vues/images/products/product-11.jpg" alt="html Template" width="65"></a>
-                          <div class="product-details"> <a href="#" title="Remove This Item" class="remove-cart"><i class="pe-7s-trash"></i></a>
-                            <p class="product-name"><a href="shopping_cart.php">Consectetur utes anet adipisicing elit</a> </p>
-                            <strong>1</strong> x <span class="price">$230.00</span> </div>
-                        </li>
-                        <li class="item last odd"> <a href="shopping_cart.php" title="Product title here" class="product-image"><img src="vues/images/products/product-10.jpg" alt="html Template" width="65"></a>
-                          <div class="product-details"> <a href="#" title="Remove This Item" class="remove-cart"><i class="pe-7s-trash"></i></a>
-                            <p class="product-name"><a href="shopping_cart.php">Sed do eiusmod tempor incidist</a> </p>
-                            <strong>2</strong> x <span class="price">$420.00</span> </div>
-                        </li>
+                      <?php endfor; ?>
                       </ul>
-                      <div class="top-subtotal">Subtotal: <span class="price">$520.00</span></div>
+                      <div class="top-subtotal">Total: <span class="price"><?=$Total?> FCFA</span></div>
                       <div class="actions">
-                        <button class="btn-checkout" type="button" onClick="location.href='checkout.php'"><i class="fa fa-check"></i><span>Checkout</span></button>
-                        <button class="view-cart" type="button" onClick="location.href='shopping_cart.php'"><i class="fa fa-shopping-cart"></i><span>View Cart</span></button>
+                        <button class="view-cart" type="button"><i class="fa fa-shopping-cart"></i><span>Voir les commandes</span></button>
                       </div>
                     </div>
                   </div>
@@ -400,7 +374,7 @@
                         <div class="info-inner">
                           <div class="item-title"> <a title="<?=$Produit[$i]->NomProduit ?>" href="../produit.php?p=<?=$Produit[$i]->UniqueId ?>"><?=$Produit[$i]->NomProduit ?></a> </div>
                           <div class="item-content">
-                            <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
+                            <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
                             <div class="item-price">
                               <div class="price-box"> <span class="regular-price"> <span class="price"><?=$Produit[$i]->PrixProduit ?>FCFA</span> </span> </div>
                             </div>
@@ -447,6 +421,26 @@
 <script type="text/javascript" src="js/mobile-menu.js"></script> 
 <script type="text/javascript" src="js/jquery-ui.js"></script> 
 <script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript">
+  function Controle(){
+    if (document.querySelector('.cache').style.display == "none") {
+      document.querySelector('.cache').style.display = "block"
+    }
+    else{
+      document.querySelector('.cache').style.display = "none"
+    }
+  }
+/*  window.onclick = function(event){
+      console.log(event)
+    }*/
+window.onclick = function(event) {
+  if (event.target.outerText != "Mon Compte" && document.querySelector('.cache').style.display == "block") {
+    document.querySelector('.cache').style.display = "none"
+  }
+
+    
+}
+</script>
 
 </body>
 

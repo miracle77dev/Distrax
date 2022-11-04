@@ -14,11 +14,39 @@ class Marchand
 
 	public function AddMarchand($Data)
 	{
-		$Req = "INSERT INTO marchand(IdMarchand,ConfirmationCode,Nom,Numero,Email,PageFacebook) VALUES(?,?,?,?,?,?)";
+		$Req = "INSERT INTO marchand(IdMarchand,ConfirmationCode,Nom,Numero,Email,Password) VALUES(?,?,?,?,?,?)";
 		$q=$this->Connexion->prepare($Req);
 		$q->execute($Data);
 		$q->closeCursor();
 		return 0;
+	}
+
+	public function ConnectUserAccount($Data)
+	{
+		$Req = "SELECT COUNT(Id) AS c FROM marchand WHERE (Email = :Email AND Password = :Password) OR (Numero = :Numero AND Password = :Password)";
+		$q=$this->Connexion->prepare($Req);
+		$q->execute([
+			':Email'=>$Data[0],
+			':Password'=>$Data[1],
+			':Numero'=>$Data[0]
+		]);
+		$Retour = $q->fetch(PDO::FETCH_OBJ);
+
+		if ($Retour->c == 1) {
+			return 0; #Le compte existe, on connecte l'utilisateur
+		}
+		else{
+			return 1; #Les identifiants saisis ne sont pas correct
+		}
+	}
+
+	public function getIdMarchandByEmailOrNumb($Tag){
+		$Req = "SELECT IdMarchand FROM marchand WHERE Email = :Email OR Numero = :Numero";
+		$q = $this->Connexion->prepare($Req);
+		$q->execute([':Email'=>$Tag,
+			':Numero'=>$Tag
+		]);
+		return $q->fetch(PDO::FETCH_OBJ);
 	}
 
 	public function getMarchandByIdMarchand($IdMarchand){

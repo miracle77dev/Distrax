@@ -7,8 +7,10 @@ if (isset($_GET)) {
 	$Info=InfoProduit(htmlentities($_GET['id']));
 	//
 	$_SESSION['IdCategorie'] = $Info->IdCategorie;
+	$_SESSION['IdMarchand'] = $Info->IdMarchand;
 	$Data = [
 		$Info->IdMarchand,
+		$Info->ImagePrincipale,
 		$Info->NomProduit,
 		htmlspecialchars(intval($q)),
 		intval($Info->PrixProduit),
