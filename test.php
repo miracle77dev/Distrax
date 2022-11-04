@@ -1,4 +1,4 @@
 <?php 
-require 'vues/wishlist.php';
+require 'vues/shortcodes.php';
 
 

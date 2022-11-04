@@ -320,7 +320,7 @@
                       </ul>
                       <div class="top-subtotal">Total: <span class="price"><?=$Total?> FCFA</span></div>
                       <div class="actions">
-                        <button class="view-cart" type="button"><i class="fa fa-shopping-cart"></i><span>Voir les commandes</span></button>
+                        <button class="view-cart" type="button" onclick="document.location.href='voir_commande.php'"><i class="fa fa-shopping-cart"></i><span>Voir les commandes</span></button>
                       </div>
                     </div>
                   </div>
