@@ -60,14 +60,16 @@
               <table class="col-md-12">
                 <thead>
                   <tr>
-                    <th class="th-product">Images</th>
-                    <th class="th-details">Product Name</th>
-                    <th class="th-price">Prix Unitaire</th>
+                    <th class="th-product">Image</th>
+                    <th class="th-details">Produit</th>
+                    <th class="th-price">PU</th>
                     <th class="th-delate">Qte</th>
                     <th class="th-delate">Client</th>
                     <th class="th-price">Contact</th>
                     <th class="th-details">Adresse</th>
-                    <th class="th-total th-add-to-cart">Add to Cart </th>
+                    <th class="th-details">Date</th>
+                    <th class="th-total th-add-to-cart">Statut</th>
+                    <th class="th-delate">Retirer</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -79,19 +81,44 @@
                     <td class="th-details"><a href="">Le client</a></td>
                     <td class="th-details"><h2><a href="">0122908712</a></h2></td>
                     <td class="th-details">Koumassi Fanny</td>
+                    <td class="th-details"><a href="">12/11/2022</a></td>
                     <th class="td-add-to-cart">
                       <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle traitement" type="button" data-toggle="dropdown">Traitement
                           <span class="caret"></span></button>
                           <ul class="dropdown-menu">
                             <li><a href="#" onclick="ChangeState()" id="encours">En cours</a></li>
-                            <li><a href="#" onclick="ChangeStatt()" id="traiter">Traiter</a></li>
+                            <li><a href="#" onclick="ChangeStatt()" id="traiter">Traitée</a></li>
                             <li class="divider"></li>
-                            <li><a href="#" onclick="ChangeStata()" id="annuler">Annuler</a></li>
+                            <li><a href="#" onclick="ChangeStata()" id="annuler">Annulée</a></li>
                           </ul>
                         </div>
                       </th>
-                    </tr>
+                    <td class="th-delate"><a href=""><i class="fa fa-trash"></i></a></td>
+                  </tr>
+                  <tr>
+                    <td class="th-product"><a href="#"><img src="upload/620620b7ab769950ec6507772ae9d8f4de0a356ae57dc49062c7cf42255a4a96.jpg" alt="cart"></a></td>
+                    <td class="th-details"><a href="">Nom du produit</a></td>
+                    <td class="th-price"><a href="">15000</a></td>
+                    <td class="th-delate"><a href="">2</a></td>
+                    <td class="th-details"><a href="">Le client</a></td>
+                    <td class="th-details"><h2><a href="">0122908712</a></h2></td>
+                    <td class="th-details">Koumassi Fanny</td>
+                    <td class="th-details"><a href="">12/11/2022</a></td>
+                    <th class="td-add-to-cart">
+                      <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle traitement" type="button" data-toggle="dropdown">Traitement
+                          <span class="caret"></span></button>
+                          <ul class="dropdown-menu">
+                            <li><a href="#" onclick="ChangeState()" id="encours">En cours</a></li>
+                            <li><a href="#" onclick="ChangeStatt()" id="traiter">Traitée</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#" onclick="ChangeStata()" id="annuler">Annulée</a></li>
+                          </ul>
+                        </div>
+                      </th>
+                    <td class="th-delate"><a href=""><i class="fa fa-trash"></i></a></td>
+                  </tr>
                 </tbody>
               </table>
                </div>
@@ -207,22 +234,20 @@
 <script type="text/javascript" src="js/main.js"></script> 
 <script type="text/javascript">
     function ChangeState(){
-      console.log(document.getElementById('encours').innerHTML)
-    if (document.querySelector('.cache').style.display == "none") {
-      document.querySelector('.cache').style.display = "block"
-    }
+      document.querySelector('.traitement').innerHTML = document.getElementById('encours').innerHTML
+      document.querySelector('.traitement').style.backgroundColor = "#e78527"; 
+      document.querySelector('.traitement').style.borderColor = "#e78527";
+  }
+
     function ChangeStatt(){
-      console.log(document.getElementById('traiter').innerHTML)
-    if (document.querySelector('.cache').style.display == "none") {
-      document.querySelector('.cache').style.display = "block"
-    }
+      document.querySelector('.traitement').innerHTML = document.getElementById('traiter').innerHTML
+      document.querySelector('.traitement').style.backgroundColor = "#14bb57"; 
+      document.querySelector('.traitement').style.borderColor = "#14bb57";
+  }
     function ChangeStata(){
-      console.log(document.getElementById('annuler').innerHTML)
-    if (document.querySelector('.cache').style.display == "none") {
-      document.querySelector('.cache').style.display = "block"
-    }
-
-
+      document.querySelector('.traitement').innerHTML = document.getElementById('annuler').innerHTML
+      document.querySelector('.traitement').style.backgroundColor = "#e83f33"; 
+      document.querySelector('.traitement').style.borderColor = "#e83f33"; 
   }
 
 </script>
