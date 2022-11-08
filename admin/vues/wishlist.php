@@ -51,7 +51,7 @@
   <section class="main-container col2-right-layout">
     <div class="main container">
       <div class="row">
-        <div class="col-main col-sm-9 col-xs-12">
+        <div class="col-main col-sm-10 col-xs-12">
           <div class="my-account">
             <div class="page-title">
               <h2>Traitement de commande</h2>
@@ -68,7 +68,7 @@
                     <th class="th-price">Contact</th>
                     <th class="th-details">Adresse</th>
                     <th class="th-details">Date</th>
-                    <th class="th-total th-add-to-cart">Statut</th>
+                    <th class="th-details">Statut</th>
                     <th class="th-delate">Retirer</th>
                   </tr>
                 </thead>
@@ -82,18 +82,24 @@
                     <td class="th-details"><h2><a href="">0122908712</a></h2></td>
                     <td class="th-details">Koumassi Fanny</td>
                     <td class="th-details"><a href="">12/11/2022</a></td>
-                    <th class="td-add-to-cart">
-                      <div class="dropdown">
+                    <th class="th-details">
+                      <select style="width: 100px;">
+                        <option>En cours</option>
+                        <option>Livrée</option>
+                        <option>Annulée</option>
+                      </select>
+                      <!-- <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle traitement" type="button" data-toggle="dropdown">Traitement
-                          <span class="caret"></span></button>
+                          <span class="caret"></span>
+                        </button>
                           <ul class="dropdown-menu">
                             <li><a href="#" onclick="ChangeState()" id="encours">En cours</a></li>
                             <li><a href="#" onclick="ChangeStatt()" id="traiter">Traitée</a></li>
                             <li class="divider"></li>
                             <li><a href="#" onclick="ChangeStata()" id="annuler">Annulée</a></li>
                           </ul>
-                        </div>
-                      </th>
+                        </div> -->
+                    </th>
                     <td class="th-delate"><a href=""><i class="fa fa-trash"></i></a></td>
                   </tr>
                   <tr>
@@ -105,18 +111,24 @@
                     <td class="th-details"><h2><a href="">0122908712</a></h2></td>
                     <td class="th-details">Koumassi Fanny</td>
                     <td class="th-details"><a href="">12/11/2022</a></td>
-                    <th class="td-add-to-cart">
-                      <div class="dropdown">
+                    <th class="th-details">
+                      <select style="width: 100px;">
+                        <option>En cours</option>
+                        <option>Livrée</option>
+                        <option>Annulée</option>
+                      </select>
+                      <!-- <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle traitement" type="button" data-toggle="dropdown">Traitement
-                          <span class="caret"></span></button>
+                          <span class="caret"></span>
+                        </button>
                           <ul class="dropdown-menu">
                             <li><a href="#" onclick="ChangeState()" id="encours">En cours</a></li>
                             <li><a href="#" onclick="ChangeStatt()" id="traiter">Traitée</a></li>
                             <li class="divider"></li>
                             <li><a href="#" onclick="ChangeStata()" id="annuler">Annulée</a></li>
                           </ul>
-                        </div>
-                      </th>
+                      </div> -->
+                    </th>
                     <td class="th-delate"><a href=""><i class="fa fa-trash"></i></a></td>
                   </tr>
                 </tbody>
@@ -124,7 +136,7 @@
                </div>
           </div>
         </div>
-        <aside class="right sidebar col-sm-3 col-xs-12">
+        <aside class="right sidebar col-sm-2 col-xs-12">
           <div class="sidebar-account block">
             <div class="sidebar-bar-title">
               <h3>Suivie & Analyse</h3>
