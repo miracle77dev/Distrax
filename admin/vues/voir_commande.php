@@ -19,7 +19,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Favicon  -->
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="vues/favicon.ico">
 
 
 
@@ -51,7 +51,7 @@
   <section class="main-container col2-right-layout">
     <div class="main container">
       <div class="row">
-        <div class="col-main col-sm-10 col-xs-12">
+        <div class="col-main col-sm-9 col-xs-12">
           <div class="my-account">
             <div class="page-title">
               <h2>Traitement de commande</h2>
@@ -66,77 +66,52 @@
                     <th class="th-delate">Qte</th>
                     <th class="th-delate">Client</th>
                     <th class="th-price">Contact</th>
-                    <th class="th-details">Adresse</th>
+                    <th class="th-details">Adresse de livraison</th>
                     <th class="th-details">Date</th>
                     <th class="th-details">Statut</th>
-                    <th class="th-delate">Retirer</th>
+                    <th class="th-delate"></th>
                   </tr>
                 </thead>
                 <tbody>
+                  <?php for ($i=0; $i <count($Produit) ; $i++) : ?>
                   <tr>
-                    <td class="th-product"><a href="#"><img src="upload/620620b7ab769950ec6507772ae9d8f4de0a356ae57dc49062c7cf42255a4a96.jpg" alt="cart"></a></td>
-                    <td class="th-details"><a href="">Nom du produit</a></td>
-                    <td class="th-price"><a href="">15000</a></td>
-                    <td class="th-delate"><a href="">2</a></td>
-                    <td class="th-details"><a href="">Le client</a></td>
-                    <td class="th-details"><h2><a href="">0122908712</a></h2></td>
-                    <td class="th-details">Koumassi Fanny</td>
-                    <td class="th-details"><a href="">12/11/2022</a></td>
-                    <th class="th-details">
-                      <select style="width: 100px;">
-                        <option>En cours</option>
-                        <option>Livrée</option>
-                        <option>Annulée</option>
-                      </select>
-                      <!-- <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle traitement" type="button" data-toggle="dropdown">Traitement
-                          <span class="caret"></span>
-                        </button>
-                          <ul class="dropdown-menu">
-                            <li><a href="#" onclick="ChangeState()" id="encours">En cours</a></li>
-                            <li><a href="#" onclick="ChangeStatt()" id="traiter">Traitée</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#" onclick="ChangeStata()" id="annuler">Annulée</a></li>
-                          </ul>
-                        </div> -->
-                    </th>
-                    <td class="th-delate"><a href=""><i class="fa fa-trash"></i></a></td>
+                      <td class="th-product"><a href="#"><img src="upload/<?=$Produit[$i]->ImagePrincipale ?>" alt="cart"></a></td>
+                      <td class="th-details"><a href=""><?=$Produit[$i]->Produit ?></a></td>
+                      <td class="th-price"><a href="">15000</a></td>
+                      <td class="th-delate"><a href=""><?=$Produit[$i]->Qte ?></a></td>
+                      <td class="th-details"><a href=""><?=$Produit[$i]->NomClient ?></a></td>
+                      <td class="th-details"><h2><a href=""><?=$Produit[$i]->NumeroClient ?></a></h2></td>
+                      <td class="th-details"><?=$Produit[$i]->CommuneClient ?>/<?=$Produit[$i]->AdresseLivraison ?></td>
+                      <td class="th-details"><a href=""><?=$Produit[$i]->Date ?></a></td>
+                      <th class="th-details">
+                        <?php if ($Produit[$i]->Statut==0) : ?>
+                          <button class="btn btn-primary" type="button" style="background-color: #f8f8f8; border-color:#f8f8f8;">
+                            <a href="produit_commande.php?id=<?=$Produit[$i]->CommandeId ?>" style="color: black;">Non Traitée</a>
+                          </button>
+                        <?php elseif($Produit[$i]->Statut==1) :?>
+                          <button class="btn btn-primary" type="button" style="background-color: #e78527; border-color:#e78527;">
+                            <a href="produit_commande.php?id=<?=$Produit[$i]->CommandeId ?>" style="color: #fff;">En cours</a>
+                          </button>
+                        <?php elseif($Produit[$i]->Statut==2) :?>
+                          <button class="btn btn-primary" type="button" style="background-color: #14bb57; border-color:#14bb57;">
+                            <a href="produit_commande.php?id=<?=$Produit[$i]->CommandeId ?>">Traitée</a>
+                          </button>
+                        <?php elseif($Produit[$i]->Statut==3) :?>
+                          <button class="btn btn-primary" type="button" style="background-color: #e83f33; border-color:#e83f33;">
+                            <a href="produit_commande.php?id=<?=$Produit[$i]->CommandeId ?>">Annuler</a>
+                          </button>
+                        <?php endif; ?>
+                      </th>
+                      <td class="th-delate"><a href=""></a></td>
                   </tr>
-                  <tr>
-                    <td class="th-product"><a href="#"><img src="upload/620620b7ab769950ec6507772ae9d8f4de0a356ae57dc49062c7cf42255a4a96.jpg" alt="cart"></a></td>
-                    <td class="th-details"><a href="">Nom du produit</a></td>
-                    <td class="th-price"><a href="">15000</a></td>
-                    <td class="th-delate"><a href="">2</a></td>
-                    <td class="th-details"><a href="">Le client</a></td>
-                    <td class="th-details"><h2><a href="">0122908712</a></h2></td>
-                    <td class="th-details">Koumassi Fanny</td>
-                    <td class="th-details"><a href="">12/11/2022</a></td>
-                    <th class="th-details">
-                      <select style="width: 100px;">
-                        <option>En cours</option>
-                        <option>Livrée</option>
-                        <option>Annulée</option>
-                      </select>
-                      <!-- <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle traitement" type="button" data-toggle="dropdown">Traitement
-                          <span class="caret"></span>
-                        </button>
-                          <ul class="dropdown-menu">
-                            <li><a href="#" onclick="ChangeState()" id="encours">En cours</a></li>
-                            <li><a href="#" onclick="ChangeStatt()" id="traiter">Traitée</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#" onclick="ChangeStata()" id="annuler">Annulée</a></li>
-                          </ul>
-                      </div> -->
-                    </th>
-                    <td class="th-delate"><a href=""><i class="fa fa-trash"></i></a></td>
-                  </tr>
+                  <?php endfor; ?>
                 </tbody>
               </table>
                </div>
           </div>
+        <a href="voir_produit.php" style="position: absolute; right: 0px; bottom: 0px; color:red; font-size: 15px; border: 1px #f8f8f8; padding: 2px; background: #f8f8f8; border-radius: 6px;">Retour</a>
         </div>
-        <aside class="right sidebar col-sm-2 col-xs-12">
+        <aside class="right sidebar col-sm-3 col-xs-12">
           <div class="sidebar-account block">
             <div class="sidebar-bar-title">
               <h3>Suivie & Analyse</h3>
@@ -184,38 +159,7 @@
     </div>
   </section>
   
-  <!-- Footer -->
-  <footer>
-    <div class="footer-contact">
-      <div class="container">
-        <div class="row">
-          
-          <div class="col-sm-4">
-            <div class="footer-contact-item">
-              <div class="footer-contact-icon"> <i class="fa fa-phone"></i> </div>
-              <div class="footer-contact-text"> + (800) 0123 456 789 </div>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-    
-    <div class="footer-coppyright">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6 col-xs-12 coppyright"> Copyright © 2017 <a href="#"> ShopMart </a>. All Rights Reserved. </div>
-          <div class="col-sm-6 col-xs-12">
-            <ul class="footer-company-links">
-              <li> <a href="about_us.php">About ShopMart</a> </li>
-              <li> <a href="#">Careers</a> </li>
-              <li> <a href="#">Privacy Policy</a> </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+  
   <a href="#" id="back-to-top" title="Back to top"><i class="fa fa-angle-up"></i></a> </div>
 
 <!-- End Footer --> 

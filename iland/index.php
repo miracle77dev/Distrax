@@ -35,7 +35,7 @@ if (isset($_POST['add'])&&!empty($_POST['Nom'])&&!empty($_POST['Numero'])&&!empt
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<link rel="profile" href="https://gmpg.org/xfn/11" />
 			<script>document.documentElement.className = document.documentElement.className + ' yes-js js_active js'</script>
-			<title>i-Land Africa</title>
+			<title>Distrax Africa</title>
 			<meta name='robots' content='max-image-preview:large' />
 			<noscript><style>#preloader{display:none;}</style></noscript><link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
 			<link rel='dns-prefetch' href='http://s.w.org/' />
@@ -322,7 +322,7 @@ if (isset($_POST['add'])&&!empty($_POST['Nom'])&&!empty($_POST['Numero'])&&!empt
 								data-frame_999="o:0;e:power4.inOut;st:w;sp:1200;"
 								data-frame_999_sfx="se:blocktotop;"
 								style="z-index:18;font-family:Roboto;"
-								><?=$e = isset($_GET["e"])?"Login ou Mot de passe incorrect":"iLand Africa" ?>[<a href="" style="color:black;" data-toggle="modal" data-target="#exampleModal">Se connecter</a>] 
+								><?=$e = isset($_GET["e"])?"Login ou Mot de passe incorrect":"Distrax Africa" ?>[<a href="" style="color:black;" data-toggle="modal" data-target="#exampleModal">Se connecter</a>] 
 
 								</rs-layer>
 								<!----><p
@@ -950,7 +950,7 @@ if (isset($_POST['add'])&&!empty($_POST['Nom'])&&!empty($_POST['Numero'])&&!empt
 										<div class="section-title-holder no-animation">
 											<div class="title-text-button title-text-style1">		
 												<div class="translate-bottom-75 opacity-animation transition-150 transition-delay-500">
-									<h2 class="rtin-title">Créer un compte <span style="color:orangered; font-family: Monotype Corsiva;font-weight: bold; font-size: 42px;">i</span> Land</h2>
+									<h2 class="rtin-title">Créer un compte <span style="color:orangered; font-family: Monotype Corsiva;font-weight: bold; font-size: 42px;">Distrax</span></h2>
 								</div>
 								<div class="translate-bottom-75 opacity-animation transition-150 transition-delay-1000">
 									<div class="rtin-content">

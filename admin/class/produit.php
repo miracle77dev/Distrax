@@ -55,6 +55,16 @@ class Produit
 		$q->closeCursor();
 		return 1;
 	}
+	public function getCategorieByIdCategorie($IdMarchand,$IdCategorie)
+	{
+		$Req = "SELECT Categorie FROM categorie WHERE IdMarchand = ? AND Id = ? ";
+		$q=$this->Connexion->prepare($Req);
+		$q->execute([$IdMarchand,$IdCategorie]);
+		$Donnee=$q->fetch(PDO::FETCH_OBJ);
+		$q->closeCursor();
+		return $Donnee;
+	}
+
 	public function getProduit($IdMarchand)
 	{
 		$Req = "SELECT * FROM produit WHERE IdMarchand = ?";

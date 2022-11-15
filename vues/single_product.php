@@ -34,14 +34,13 @@
   <!-- end header -->
  
   <!-- Breadcrumbs -->
-  
   <div class="breadcrumbs">
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
           <ul>
             <li class="home"> <a title="Go to Home Page" href="index.php">DISTRAX</a><span>&raquo;</span></li>
-            <li class=""> <a title="Go to Home Page" href="shop_grid.php">TUNIQUES HOMMES</a><span>&raquo;</span></li>
+            <li class=""> <a title="Go to Home Page" href="upsell.php"  style="text-transform: uppercase;"><?=$Categorie ?></a><span>&raquo;</span></li>
             <li><strong style="text-transform: uppercase;"><?=$Produit->NomProduit?></strong></li>
           </ul>
         </div>

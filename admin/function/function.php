@@ -62,6 +62,19 @@ if (!function_exists('getCommandeNonTraite')) {
      
    }
 }
+if (!function_exists('getCommandeNonTraiteDetail')) {
+   function getCommandeNonTraiteDetail($IdMarchand){
+             GLOBAL $Connexion;
+             $r="SELECT * FROM commande WHERE IdMarchand = ? AND Statut = 0 OR Statut =1 OR Statut =2";
+             $req=$Connexion->prepare($r);
+             $req->execute([$IdMarchand]);
+             $donnee=$req->fetchall(PDO::FETCH_OBJ);
+             return $donnee;
+     
+   }
+}
+
+
 
 if (!function_exists('getCategorieByIdMarchand')) {
    function getCategorieByIdMarchand($IdMarchand){
@@ -155,6 +168,24 @@ if (!function_exists('getProduitByUniqueId')) {
    }
 }
 
+if (!function_exists('getCommandeById')) {
+   function getCommandeById($items,$Marchand){
+      if (!empty($items)) {
+             GLOBAL $Connexion;
+             $r='SELECT * FROM commande WHERE CommandeId = ? AND IdMarchand = ?';
+             $req=$Connexion->prepare($r);
+             $req->execute([$items,$Marchand]);
+             $donnee=$req->fetch(PDO::FETCH_OBJ);
+             return $donnee;
+      }
+      else{
+         die('Veuillez rentrer un paramettre valide le produit');
+      }
+   }
+}
+
+
+
 //Recupère le nom de la couleur à partir de la table produit en se basant sur l'Id du produit
 if (!function_exists('getCouleurName')) {
    function getCouleurName($Id){
@@ -181,6 +212,18 @@ if (!function_exists('getCouleur')) {
              $req->execute();
              $donnee=$req->fetchAll(PDO::FETCH_OBJ);
              return $donnee;
+      }
+   }
+}
+
+if (!function_exists('UpdateState')) {
+   function UpdateState($Val,$UniqueId){
+      if (!empty($UniqueId)) {
+             GLOBAL $Connexion;
+             $r="UPDATE commande SET Statut = ? WHERE CommandeId = ?";
+             $req=$Connexion->prepare($r);
+             $req->execute([$Val,$UniqueId]);
+             $req->closeCursor();
       }
    }
 }

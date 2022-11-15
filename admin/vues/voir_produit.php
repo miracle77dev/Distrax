@@ -269,7 +269,6 @@
               <div class="logo"><a title="e-commerce" href="index.php"><img alt="ShopMart" title="ShopMart" src="vues/images/logo.jpg"></a> </div>
             </div>
             <div class="col-xs-12 col-sm-5 col-md-6 jtv-top-search"> 
-              
               <!-- Search -->
               
               <div class="top-search">
