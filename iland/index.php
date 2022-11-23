@@ -35,13 +35,13 @@ if (isset($_POST['add'])&&!empty($_POST['Nom'])&&!empty($_POST['Numero'])&&!empt
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<link rel="profile" href="https://gmpg.org/xfn/11" />
 			<script>document.documentElement.className = document.documentElement.className + ' yes-js js_active js'</script>
-			<title>Distrax Africa</title>
+			<title>Keneshy</title>
 			<meta name='robots' content='max-image-preview:large' />
 			<noscript><style>#preloader{display:none;}</style></noscript><link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
 			<link rel='dns-prefetch' href='http://s.w.org/' />
 			<link rel='preconnect' href='https://fonts.gstatic.com/' crossorigin />
-			<link rel="alternate" type="application/rss+xml" title="My site &raquo; Лента" href="http://uruf.ru/feed/" />
-			<link rel="alternate" type="application/rss+xml" title="My site &raquo; Лента комментариев" href="http://uruf.ru/comments/feed/" />
+			<link rel="alternate" type="application/rss+xml" title="Keneshy &raquo; Лента" href="http://uruf.ru/feed/" />
+			<link rel="alternate" type="application/rss+xml" title="Keneshy &raquo; Лента комментариев" href="http://uruf.ru/comments/feed/" />
 			<script type="text/javascript">
 				window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/uruf.ru\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.7.8"}};
 				!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
@@ -230,8 +230,8 @@ if (isset($_POST['add'])&&!empty($_POST['Nom'])&&!empty($_POST['Numero'])&&!empt
 							<div class="container-fluid">
 								<div class="menu-full-wrap">
 									<div class="site-branding">
-										<a class="dark-logo" href="http://uruf.ru/"><img src="./wp-content/themes/digeco/assets/img/logo.png" alt="My site"></a>
-										<a class="light-logo" href="http://uruf.ru/"><img src="./wp-content/themes/digeco/assets/img/logo2.png" alt="My site"></a>
+										<a class="dark-logo" href=""><img src="./wp-content/themes/digeco/assets/img/logo.png" alt="Keneshy"></a>
+										<a class="light-logo" href=""><img src="./wp-content/themes/digeco/assets/img/logo.png" alt="Keneshy"></a>
 									</div>
 									<div class="menu-wrap">
 										<div id="site-navigation" class="main-navigation">
@@ -306,7 +306,7 @@ if (isset($_POST['add'])&&!empty($_POST['Nom'])&&!empty($_POST['Numero'])&&!empt
 								data-frame_1="e:sine.in;st:3500;sp:500;"
 								data-frame_999="o:0;st:w;"
 								style="z-index:17;font-family:Poppins;"
-								>Vendez rapidement<br> <span style="color:#5a49f8">Vendez 17 x plus</span> 
+								>Vendez rapidement<br> <span style="color:#5a49f8">Vendez 17 fois plus</span> 
 
 								</h1>
 
@@ -322,7 +322,7 @@ if (isset($_POST['add'])&&!empty($_POST['Nom'])&&!empty($_POST['Numero'])&&!empt
 								data-frame_999="o:0;e:power4.inOut;st:w;sp:1200;"
 								data-frame_999_sfx="se:blocktotop;"
 								style="z-index:18;font-family:Roboto;"
-								><?=$e = isset($_GET["e"])?"Login ou Mot de passe incorrect":"Distrax Africa" ?>[<a href="" style="color:black;" data-toggle="modal" data-target="#exampleModal">Se connecter</a>] 
+								><?=$e = isset($_GET["e"])?"Login ou Mot de passe incorrect":"Keneshy" ?>[<a href="" style="color:black;" data-toggle="modal" data-target="#exampleModal">Se connecter</a>] 
 
 								</rs-layer>
 								<!----><p
@@ -337,10 +337,12 @@ if (isset($_POST['add'])&&!empty($_POST['Nom'])&&!empty($_POST['Numero'])&&!empt
 								data-frame_1="e:sine.in;st:4000;sp:500;"
 								data-frame_999="o:0;st:w;"
 								style="z-index:16;font-family:Roboto;"
-								>Grursus mal suada faci lisis Lorem ipsum dolarorit mor ametion<br> the consectetur nec odio aea the dumm text. 
+								>Restez professionnel dans votre business en ligne<br> Ne discutez plus le prix de vos produits sur Facebook. <br> Avec Keneshy, traitez vos commandes, livrez et recuperez votre argent ! 
 								</p><!--
 
-								--><rs-layer
+								-->
+
+								<rs-layer
 								id="slider-4-slide-4-layer-6" 
 								data-type="image"
 								data-rsp_ch="on"
@@ -656,13 +658,13 @@ if (isset($_POST['add'])&&!empty($_POST['Nom'])&&!empty($_POST['Numero'])&&!empt
 										<div class="section-default-style section-title-style2">
 											<div class="section-title-holder no-animation">	
 												<div class="translate-bottom-50 opacity-animation transition-50 transition-delay-100">
-													<div class="sub-title">FEATURES</div>
+													<div class="sub-title">FONCTIONNALITES</div>
 												</div>
 												<div class="translate-bottom-50 opacity-animation transition-50 transition-delay-600">
-													<h2 class="rtin-title">Let’s Check Our Services</h2>
+													<h2 class="rtin-title">LE E-COMMERCE AUTREMENT</h2>
 												</div>
 												<div class="translate-bottom-50 opacity-animation transition-50 transition-delay-1100">
-													<p class="sub-text">Lorem Ipsum is simply dummy text of the printing and typesetting has been the industrys standard dummy text ever since</p>
+													<p class="sub-text">Vivez l'innovation dans le e-commerce, booter vos ventes et augmentez vos chiffre d'affaire chaque jour avec le reseau Keneshy</p>
 												</div>
 											</div>
 										</div>		</div>
@@ -921,9 +923,9 @@ if (isset($_POST['add'])&&!empty($_POST['Nom'])&&!empty($_POST['Numero'])&&!empt
 														</div>
 														<div class="col-lg-6 col-12">
 															<div class="about-content">
-																<h2 class="rtin-title">The Next Generation Of The Our Marketing</h2>
-						<div class="rtin-content"><p>Grursus mal suada faci lisis Lorem ipsum dolarorit ametion the at dummy consectetur elit. Vesti at bulum nec odio aea the dumm ipsum on that at to dolocons rsus mal suada and fadolorit to the consectetur elit. All the more Lorem Ipsum generators on the Internet tend to repeat chunks as dummy necessary making. All the more Lorem Ipsum generators on the Internet tend to repeat chunks as dummy necessary making.</p></div>
-													<div class="rtin-button"><a class="button-gradient-1" href="#">Read More<i class="flaticon-next"></i></a></div>
+																<h2 class="rtin-title">Vos produits sponsorisés automatiquement !</h2>
+						<div class="rtin-content"><p>Keneshy sponsorise gratuitement vos produits les plus vendu automatiquement. <br> Vos produits touchent une large audience de plus de 500.000 personnes chaque jour afin de vous permettre de faire plus de vente et d'augmenter votre chiffre d'affaire de manière significative</p></div>
+													<div class="rtin-button"><a class="button-gradient-1" href="#">En savoir plus<i class="flaticon-next"></i></a></div>
 												</div>
 											</div>
 										</div>
@@ -950,7 +952,7 @@ if (isset($_POST['add'])&&!empty($_POST['Nom'])&&!empty($_POST['Numero'])&&!empt
 										<div class="section-title-holder no-animation">
 											<div class="title-text-button title-text-style1">		
 												<div class="translate-bottom-75 opacity-animation transition-150 transition-delay-500">
-									<h2 class="rtin-title">Créer un compte <span style="color:orangered; font-family: Monotype Corsiva;font-weight: bold; font-size: 42px;">Distrax</span></h2>
+									<h2 class="rtin-title">Créer un compte <span style="color:#6d43f2;">Kene</span><span style="color: #ea4438;">shy</span></h2>
 								</div>
 								<div class="translate-bottom-75 opacity-animation transition-150 transition-delay-1000">
 									<div class="rtin-content">
@@ -1055,7 +1057,7 @@ if (isset($_POST['add'])&&!empty($_POST['Nom'])&&!empty($_POST['Numero'])&&!empt
 					<div class="footer-bottom-area">
 						<div class="container">
 							<div class="copyright_wrap">
-								<div class="copyright">&copy; 2020 digeco. All Rights Reserved by <a target="_blank" rel="nofollow" href="http://radiustheme.com/">RadiusTheme</a></div>
+								<div class="copyright">&copy; 2018 - <?= date('Y') ?> Keneshy. Tous droits reservés par <a target="_blank" rel="nofollow" href="https://sanflantech.com/">Sanflan Technology SARL</a></div>
 							</div>
 						</div>
 					</div>
@@ -1169,7 +1171,7 @@ if (isset($_POST['add'])&&!empty($_POST['Nom'])&&!empty($_POST['Numero'])&&!empt
 		<script type='text/javascript' src='./wp-includes/js/masonry.min3a05.js?ver=4.2.2' id='masonry-js'></script>
 		<script type='text/javascript' id='digeco-main-js-extra'>
 			/* <![CDATA[ */
-			var digecoObj = {"stickyMenu":"1","meanWidth":"992","siteLogo":"<a href=\"http:\/\/uruf.ru\/\" alt=\"My site\"><img class=\"logo-small\" src=\"http:\/\/uruf.ru\/wp-content\/themes\/digeco\/assets\/img\/logo.png\" \/><\/a><a class=\"button-btn\" target=\"_self\" href=\"#\">Get A Quote<\/a>\r\n<a class=\"barsearch\" href=\"#header-search\" title=\"Search\">\r\n\t<i class=\"flaticon-search\"><\/i>\r\n<\/a>","extraOffset":"70","extraOffsetMobile":"52","rtl":"no","ajaxURL":"http:\/\/uruf.ru\/wp-admin\/admin-ajax.php","nonce":"a631c452db"};
+			var digecoObj = {"stickyMenu":"1","meanWidth":"992","siteLogo":"<a href=\"http:\/\/uruf.ru\/\" alt=\"Keneshy\"><img class=\"logo-small\" src=\"http:\/\/uruf.ru\/wp-content\/themes\/digeco\/assets\/img\/logo.png\" \/><\/a><a class=\"button-btn\" target=\"_self\" href=\"#\">Get A Quote<\/a>\r\n<a class=\"barsearch\" href=\"#header-search\" title=\"Search\">\r\n\t<i class=\"flaticon-search\"><\/i>\r\n<\/a>","extraOffset":"70","extraOffsetMobile":"52","rtl":"no","ajaxURL":"http:\/\/uruf.ru\/wp-admin\/admin-ajax.php","nonce":"a631c452db"};
 			/* ]]> */
 		</script>
 		<script type='text/javascript' src='./wp-content/themes/digeco/assets/js/main3e0d.js?ver=1.7.3' id='digeco-main-js'></script>

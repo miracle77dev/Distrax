@@ -11,6 +11,7 @@ if (!empty($_SESSION['IdMarchand'])) {
 	$Categorie = getCategorieByIdMarchand(htmlspecialchars($_SESSION['IdMarchand']));
 	$Marchand = $Marchand->getMarchandByIdMarchand(htmlspecialchars($_SESSION['IdMarchand']));
 	$Commande = getCommandeNonTraite(htmlspecialchars($_SESSION['IdMarchand']));
+	$_SESSION['NomMarchand'] = $Marchand [0] ->Nom;
 	require 'vues/voir_produit.php';
 }
 else{

@@ -39,7 +39,7 @@
       <div class="row">
         <div class="col-xs-12">
           <ul>
-            <li class="home"> <a title="Go to Home Page" href="index.php">i-LAND</a><span>&raquo;</span></li>
+            <li class="home"> <a title="Go to Home Page" href="index.php">DISTRAX</a><span>&raquo;</span></li>
             <li><strong>Admin</strong></li>
           </ul>
         </div>

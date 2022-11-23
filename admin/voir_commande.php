@@ -1,6 +1,6 @@
 <?php 
 session_start();
-	
+require 'models/db.php';
 require 'function/function.php';
 
 if (!empty($_SESSION['IdMarchand'])) {

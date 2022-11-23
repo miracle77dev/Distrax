@@ -1,4 +1,9 @@
 <?php 
+
+ if(!isset($_SESSION)){ 
+    	session_start(); 
+ 	} 
+
 require 'models/db.php';
 require 'function/function.php';
 require 'class/produit.php';

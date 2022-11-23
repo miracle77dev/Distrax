@@ -7,3 +7,6 @@ if (isset($_SESSION['IdMarchand'])&&!empty($_SESSION['IdMarchand'])) {
 	$Categorie = getCategorieByIdMarchand(htmlspecialchars($_SESSION['IdMarchand']));
 	require "vues/add_produit.php";
 }
+else{
+	header('location: ../iland/index.php');
+}
